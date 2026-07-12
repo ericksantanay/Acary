@@ -5,7 +5,7 @@ const app = express();
 
 // #####################################
 // Importando as minhas rotas
-
+import cadastroUser from "./routes/cadastroDeUsuario";
 
 // Dotoenv
 import "dotenv/config";
@@ -19,7 +19,7 @@ app.use(cors()); // Depois colocar só as URLS que serão permitidas
 
 // ######################################
 // conectando as rotas no servidor
-
+app.use(cadastroUser);
 
 let porta = 3000
 
