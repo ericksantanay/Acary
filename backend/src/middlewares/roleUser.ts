@@ -36,7 +36,6 @@ export async function verificarRole(req: Request, res: Response, next: NextFunct
             return res.status(403).json({mensagem: "Voce não tem permissão."});
         };
 
-        
         next();
     } catch (error) {
         return res.status(401).json({ error: 'Token inválido ou expirado' });
