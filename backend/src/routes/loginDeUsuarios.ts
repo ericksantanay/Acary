@@ -62,11 +62,8 @@ router.post("/loginUsuario", async (req: Request, res: Response) => {
 
     } catch (error) {
         return res.status(500).json({mensagem: "Erro no servidor"})
-    }
-
+    };
 
 })
-
-
 
 export default router
