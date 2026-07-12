@@ -10,8 +10,7 @@ datasource db {
 
 model usuario {
   id                String  @id @default(auto()) @map("_id") @db.ObjectId
-  nome              String
-  cpf               Int  
+  nome              String 
   email             String  @unique           
   senha             String
   role              String

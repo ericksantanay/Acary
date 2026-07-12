@@ -20,24 +20,13 @@ export type usuarioModel = runtime.Types.Result.DefaultSelection<Prisma.$usuario
 
 export type AggregateUsuario = {
   _count: UsuarioCountAggregateOutputType | null
-  _avg: UsuarioAvgAggregateOutputType | null
-  _sum: UsuarioSumAggregateOutputType | null
   _min: UsuarioMinAggregateOutputType | null
   _max: UsuarioMaxAggregateOutputType | null
-}
-
-export type UsuarioAvgAggregateOutputType = {
-  cpf: number | null
-}
-
-export type UsuarioSumAggregateOutputType = {
-  cpf: number | null
 }
 
 export type UsuarioMinAggregateOutputType = {
   id: string | null
   nome: string | null
-  cpf: number | null
   email: string | null
   senha: string | null
   role: string | null
@@ -47,7 +36,6 @@ export type UsuarioMinAggregateOutputType = {
 export type UsuarioMaxAggregateOutputType = {
   id: string | null
   nome: string | null
-  cpf: number | null
   email: string | null
   senha: string | null
   role: string | null
@@ -57,7 +45,6 @@ export type UsuarioMaxAggregateOutputType = {
 export type UsuarioCountAggregateOutputType = {
   id: number
   nome: number
-  cpf: number
   email: number
   senha: number
   role: number
@@ -66,18 +53,9 @@ export type UsuarioCountAggregateOutputType = {
 }
 
 
-export type UsuarioAvgAggregateInputType = {
-  cpf?: true
-}
-
-export type UsuarioSumAggregateInputType = {
-  cpf?: true
-}
-
 export type UsuarioMinAggregateInputType = {
   id?: true
   nome?: true
-  cpf?: true
   email?: true
   senha?: true
   role?: true
@@ -87,7 +65,6 @@ export type UsuarioMinAggregateInputType = {
 export type UsuarioMaxAggregateInputType = {
   id?: true
   nome?: true
-  cpf?: true
   email?: true
   senha?: true
   role?: true
@@ -97,7 +74,6 @@ export type UsuarioMaxAggregateInputType = {
 export type UsuarioCountAggregateInputType = {
   id?: true
   nome?: true
-  cpf?: true
   email?: true
   senha?: true
   role?: true
@@ -143,18 +119,6 @@ export type UsuarioAggregateArgs<ExtArgs extends runtime.Types.Extensions.Intern
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: UsuarioAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: UsuarioSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: UsuarioMinAggregateInputType
@@ -185,8 +149,6 @@ export type usuarioGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   _count?: UsuarioCountAggregateInputType | true
-  _avg?: UsuarioAvgAggregateInputType
-  _sum?: UsuarioSumAggregateInputType
   _min?: UsuarioMinAggregateInputType
   _max?: UsuarioMaxAggregateInputType
 }
@@ -194,14 +156,11 @@ export type usuarioGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type UsuarioGroupByOutputType = {
   id: string
   nome: string
-  cpf: number
   email: string
   senha: string
   role: string
   perfil: string
   _count: UsuarioCountAggregateOutputType | null
-  _avg: UsuarioAvgAggregateOutputType | null
-  _sum: UsuarioSumAggregateOutputType | null
   _min: UsuarioMinAggregateOutputType | null
   _max: UsuarioMaxAggregateOutputType | null
 }
@@ -227,7 +186,6 @@ export type usuarioWhereInput = {
   NOT?: Prisma.usuarioWhereInput | Prisma.usuarioWhereInput[]
   id?: Prisma.StringFilter<"usuario"> | string
   nome?: Prisma.StringFilter<"usuario"> | string
-  cpf?: Prisma.IntFilter<"usuario"> | number
   email?: Prisma.StringFilter<"usuario"> | string
   senha?: Prisma.StringFilter<"usuario"> | string
   role?: Prisma.StringFilter<"usuario"> | string
@@ -237,7 +195,6 @@ export type usuarioWhereInput = {
 export type usuarioOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
-  cpf?: Prisma.SortOrder
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
   role?: Prisma.SortOrder
@@ -251,7 +208,6 @@ export type usuarioWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.usuarioWhereInput[]
   NOT?: Prisma.usuarioWhereInput | Prisma.usuarioWhereInput[]
   nome?: Prisma.StringFilter<"usuario"> | string
-  cpf?: Prisma.IntFilter<"usuario"> | number
   senha?: Prisma.StringFilter<"usuario"> | string
   role?: Prisma.StringFilter<"usuario"> | string
   perfil?: Prisma.StringFilter<"usuario"> | string
@@ -260,16 +216,13 @@ export type usuarioWhereUniqueInput = Prisma.AtLeast<{
 export type usuarioOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
-  cpf?: Prisma.SortOrder
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
   role?: Prisma.SortOrder
   perfil?: Prisma.SortOrder
   _count?: Prisma.usuarioCountOrderByAggregateInput
-  _avg?: Prisma.usuarioAvgOrderByAggregateInput
   _max?: Prisma.usuarioMaxOrderByAggregateInput
   _min?: Prisma.usuarioMinOrderByAggregateInput
-  _sum?: Prisma.usuarioSumOrderByAggregateInput
 }
 
 export type usuarioScalarWhereWithAggregatesInput = {
@@ -278,7 +231,6 @@ export type usuarioScalarWhereWithAggregatesInput = {
   NOT?: Prisma.usuarioScalarWhereWithAggregatesInput | Prisma.usuarioScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"usuario"> | string
   nome?: Prisma.StringWithAggregatesFilter<"usuario"> | string
-  cpf?: Prisma.IntWithAggregatesFilter<"usuario"> | number
   email?: Prisma.StringWithAggregatesFilter<"usuario"> | string
   senha?: Prisma.StringWithAggregatesFilter<"usuario"> | string
   role?: Prisma.StringWithAggregatesFilter<"usuario"> | string
@@ -288,7 +240,6 @@ export type usuarioScalarWhereWithAggregatesInput = {
 export type usuarioCreateInput = {
   id?: string
   nome: string
-  cpf: number
   email: string
   senha: string
   role: string
@@ -298,7 +249,6 @@ export type usuarioCreateInput = {
 export type usuarioUncheckedCreateInput = {
   id?: string
   nome: string
-  cpf: number
   email: string
   senha: string
   role: string
@@ -307,7 +257,6 @@ export type usuarioUncheckedCreateInput = {
 
 export type usuarioUpdateInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
-  cpf?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.StringFieldUpdateOperationsInput | string
@@ -316,7 +265,6 @@ export type usuarioUpdateInput = {
 
 export type usuarioUncheckedUpdateInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
-  cpf?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.StringFieldUpdateOperationsInput | string
@@ -326,7 +274,6 @@ export type usuarioUncheckedUpdateInput = {
 export type usuarioCreateManyInput = {
   id?: string
   nome: string
-  cpf: number
   email: string
   senha: string
   role: string
@@ -335,7 +282,6 @@ export type usuarioCreateManyInput = {
 
 export type usuarioUpdateManyMutationInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
-  cpf?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.StringFieldUpdateOperationsInput | string
@@ -344,7 +290,6 @@ export type usuarioUpdateManyMutationInput = {
 
 export type usuarioUncheckedUpdateManyInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
-  cpf?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.StringFieldUpdateOperationsInput | string
@@ -354,21 +299,15 @@ export type usuarioUncheckedUpdateManyInput = {
 export type usuarioCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
-  cpf?: Prisma.SortOrder
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
   role?: Prisma.SortOrder
   perfil?: Prisma.SortOrder
 }
 
-export type usuarioAvgOrderByAggregateInput = {
-  cpf?: Prisma.SortOrder
-}
-
 export type usuarioMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
-  cpf?: Prisma.SortOrder
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
   role?: Prisma.SortOrder
@@ -378,27 +317,14 @@ export type usuarioMaxOrderByAggregateInput = {
 export type usuarioMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
-  cpf?: Prisma.SortOrder
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
   role?: Prisma.SortOrder
   perfil?: Prisma.SortOrder
 }
 
-export type usuarioSumOrderByAggregateInput = {
-  cpf?: Prisma.SortOrder
-}
-
 export type StringFieldUpdateOperationsInput = {
   set?: string
-}
-
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
 }
 
 
@@ -406,7 +332,6 @@ export type IntFieldUpdateOperationsInput = {
 export type usuarioSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   nome?: boolean
-  cpf?: boolean
   email?: boolean
   senha?: boolean
   role?: boolean
@@ -418,14 +343,13 @@ export type usuarioSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 export type usuarioSelectScalar = {
   id?: boolean
   nome?: boolean
-  cpf?: boolean
   email?: boolean
   senha?: boolean
   role?: boolean
   perfil?: boolean
 }
 
-export type usuarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "cpf" | "email" | "senha" | "role" | "perfil", ExtArgs["result"]["usuario"]>
+export type usuarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "email" | "senha" | "role" | "perfil", ExtArgs["result"]["usuario"]>
 
 export type $usuarioPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "usuario"
@@ -433,7 +357,6 @@ export type $usuarioPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     nome: string
-    cpf: number
     email: string
     senha: string
     role: string
@@ -832,7 +755,6 @@ export interface Prisma__usuarioClient<T, Null = never, ExtArgs extends runtime.
 export interface usuarioFieldRefs {
   readonly id: Prisma.FieldRef<"usuario", 'String'>
   readonly nome: Prisma.FieldRef<"usuario", 'String'>
-  readonly cpf: Prisma.FieldRef<"usuario", 'Int'>
   readonly email: Prisma.FieldRef<"usuario", 'String'>
   readonly senha: Prisma.FieldRef<"usuario", 'String'>
   readonly role: Prisma.FieldRef<"usuario", 'String'>
