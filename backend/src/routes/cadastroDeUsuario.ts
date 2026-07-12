@@ -27,7 +27,6 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
                 email: email 
             }
         });
-
          
         // Verificação
         if (!users) {
@@ -51,7 +50,5 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
         return res.status(500).json({mensagem: "Erro no servidor."})
     }
 })
-
-
 
 export default router
