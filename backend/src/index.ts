@@ -1,5 +1,6 @@
 import express  from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -13,6 +14,7 @@ import "dotenv/config";
 // ######################################
 app.use(express.json()); // Serve pra ler JSON do req.body
 app.use(express.urlencoded({extended: true})); // Aqui ele esta lendo formularios
+app.use(cookieParser()); // Configura o middleware para ler cookies (req.cookies)
 
 // cors
 app.use(cors()); // Depois colocar só as URLS que serão permitidas
