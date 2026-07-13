@@ -10,6 +10,7 @@ import cadastroUser from "./routes/cadastroDeUsuario";
 import loginDeUsuarios from "./routes/loginDeUsuarios";
 import refreshToken from "./routes/refreshToken";
 import postagemUsuario from "./routes/postagemDeServico";
+import carregarServicos from "./routes/carregarServicos";
 
 // Dotoenv
 import "dotenv/config";
@@ -28,6 +29,7 @@ app.use(cadastroUser);
 app.use(loginDeUsuarios);
 app.use(refreshToken);
 app.use(postagemUsuario);
+app.use(carregarServicos);
 
 let porta = 3000
 
