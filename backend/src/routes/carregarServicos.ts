@@ -11,7 +11,11 @@ router.get("/carregarServicos", async (req: Request, res: Response) => {
     try {
       const servicosDisponiveis = await prisma.postagemFamilia.findMany();
 
-      res.status(200).json(servicosDisponiveis)
+      if (!servicosDisponiveis) {
+        return res.status(404).json({mensagem: "Nem um serviço encontardo"});
+      };
+
+      res.status(200).json(servicosDisponiveis);
 
     } catch (error) {
         return res.status(500).json({mensagem: "Erro no servidor."});
