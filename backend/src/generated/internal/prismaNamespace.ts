@@ -16,10 +16,10 @@
  */
 
 import * as runtime from "@prisma/client/runtime/library"
-import type * as Prisma from "../models"
-import { type PrismaClient } from "./class"
+import type * as Prisma from "../models.js"
+import { type PrismaClient } from "./class.js"
 
-export type * from '../models'
+export type * from '../models.js'
 
 export type DMMF = typeof runtime.DMMF
 
@@ -88,12 +88,12 @@ export type PrismaVersion = {
 }
 
 /**
- * Prisma Client JS version: 6.19.0
- * Query Engine version: 2ba551f319ab1df4bc874a89965d8b3641056773
+ * Prisma Client JS version: 6.19.3
+ * Query Engine version: c2990dca591cba766e3b7ef5d9e8a84796e47ab7
  */
 export const prismaVersion: PrismaVersion = {
-  client: "6.19.0",
-  engine: "2ba551f319ab1df4bc874a89965d8b3641056773"
+  client: "6.19.3",
+  engine: "c2990dca591cba766e3b7ef5d9e8a84796e47ab7"
 }
 
 /**
@@ -390,7 +390,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  usuario: 'usuario'
+  usuario: 'usuario',
+  postagemFamilia: 'postagemFamilia'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -406,7 +407,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "usuario"
+    modelProps: "usuario" | "postagemFamilia"
     txIsolationLevel: never
   }
   model: {
@@ -484,6 +485,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    postagemFamilia: {
+      payload: Prisma.$postagemFamiliaPayload<ExtArgs>
+      fields: Prisma.postagemFamiliaFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.postagemFamiliaFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemFamiliaPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.postagemFamiliaFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemFamiliaPayload>
+        }
+        findFirst: {
+          args: Prisma.postagemFamiliaFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemFamiliaPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.postagemFamiliaFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemFamiliaPayload>
+        }
+        findMany: {
+          args: Prisma.postagemFamiliaFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemFamiliaPayload>[]
+        }
+        create: {
+          args: Prisma.postagemFamiliaCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemFamiliaPayload>
+        }
+        createMany: {
+          args: Prisma.postagemFamiliaCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.postagemFamiliaDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemFamiliaPayload>
+        }
+        update: {
+          args: Prisma.postagemFamiliaUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemFamiliaPayload>
+        }
+        deleteMany: {
+          args: Prisma.postagemFamiliaDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.postagemFamiliaUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.postagemFamiliaUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemFamiliaPayload>
+        }
+        aggregate: {
+          args: Prisma.PostagemFamiliaAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePostagemFamilia>
+        }
+        groupBy: {
+          args: Prisma.postagemFamiliaGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PostagemFamiliaGroupByOutputType>[]
+        }
+        findRaw: {
+          args: Prisma.postagemFamiliaFindRawArgs<ExtArgs>
+          result: Prisma.JsonObject
+        }
+        aggregateRaw: {
+          args: Prisma.postagemFamiliaAggregateRawArgs<ExtArgs>
+          result: Prisma.JsonObject
+        }
+        count: {
+          args: Prisma.postagemFamiliaCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PostagemFamiliaCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -511,6 +586,18 @@ export const UsuarioScalarFieldEnum = {
 } as const
 
 export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeof UsuarioScalarFieldEnum]
+
+
+export const PostagemFamiliaScalarFieldEnum = {
+  id: 'id',
+  cidade: 'cidade',
+  valor: 'valor',
+  responsavel: 'responsavel',
+  dataEhorarioInicio: 'dataEhorarioInicio',
+  dataEhorarioTermino: 'dataEhorarioTermino'
+} as const
+
+export type PostagemFamiliaScalarFieldEnum = (typeof PostagemFamiliaScalarFieldEnum)[keyof typeof PostagemFamiliaScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -560,6 +647,20 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 /**
@@ -649,6 +750,7 @@ export interface PrismaClientOptions {
 }
 export type GlobalOmitConfig = {
   usuario?: Prisma.usuarioOmit
+  postagemFamilia?: Prisma.postagemFamiliaOmit
 }
 
 /* Types for Logging */
