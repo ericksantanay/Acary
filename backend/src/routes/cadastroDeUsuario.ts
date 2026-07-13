@@ -1,4 +1,4 @@
-import  Router   from "express";
+import  Router from "express";
 import { Request, Response } from "express";
 import prisma from "../lib/prisma";
 import bcrypt from "bcrypt";
@@ -51,4 +51,4 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
     }
 })
 
-export default router
+export default router;

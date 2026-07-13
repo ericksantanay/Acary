@@ -9,7 +9,7 @@ const app = express();
 import cadastroUser from "./routes/cadastroDeUsuario";
 import loginDeUsuarios from "./routes/loginDeUsuarios";
 import refreshToken from "./routes/refreshToken";
-import postagem from "./routes/postagemDeServico";
+import postagemUsuario from "./routes/postagemDeServico";
 
 // Dotoenv
 import "dotenv/config";
@@ -27,7 +27,7 @@ app.use(cors()); // Depois colocar só as URLS que serão permitidas
 app.use(cadastroUser);
 app.use(loginDeUsuarios);
 app.use(refreshToken);
-app.use(postagem);
+app.use(postagemUsuario);
 
 let porta = 3000
 
