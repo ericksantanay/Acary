@@ -27,16 +27,19 @@ export type AggregatePostagemFamilia = {
 }
 
 export type PostagemFamiliaAvgAggregateOutputType = {
+  criancas: number | null
   valor: number | null
 }
 
 export type PostagemFamiliaSumAggregateOutputType = {
+  criancas: number | null
   valor: number | null
 }
 
 export type PostagemFamiliaMinAggregateOutputType = {
   id: string | null
   cidade: string | null
+  criancas: number | null
   valor: number | null
   responsavel: string | null
   dataEhorarioInicio: string | null
@@ -46,6 +49,7 @@ export type PostagemFamiliaMinAggregateOutputType = {
 export type PostagemFamiliaMaxAggregateOutputType = {
   id: string | null
   cidade: string | null
+  criancas: number | null
   valor: number | null
   responsavel: string | null
   dataEhorarioInicio: string | null
@@ -55,6 +59,7 @@ export type PostagemFamiliaMaxAggregateOutputType = {
 export type PostagemFamiliaCountAggregateOutputType = {
   id: number
   cidade: number
+  criancas: number
   valor: number
   responsavel: number
   dataEhorarioInicio: number
@@ -64,16 +69,19 @@ export type PostagemFamiliaCountAggregateOutputType = {
 
 
 export type PostagemFamiliaAvgAggregateInputType = {
+  criancas?: true
   valor?: true
 }
 
 export type PostagemFamiliaSumAggregateInputType = {
+  criancas?: true
   valor?: true
 }
 
 export type PostagemFamiliaMinAggregateInputType = {
   id?: true
   cidade?: true
+  criancas?: true
   valor?: true
   responsavel?: true
   dataEhorarioInicio?: true
@@ -83,6 +91,7 @@ export type PostagemFamiliaMinAggregateInputType = {
 export type PostagemFamiliaMaxAggregateInputType = {
   id?: true
   cidade?: true
+  criancas?: true
   valor?: true
   responsavel?: true
   dataEhorarioInicio?: true
@@ -92,6 +101,7 @@ export type PostagemFamiliaMaxAggregateInputType = {
 export type PostagemFamiliaCountAggregateInputType = {
   id?: true
   cidade?: true
+  criancas?: true
   valor?: true
   responsavel?: true
   dataEhorarioInicio?: true
@@ -188,6 +198,7 @@ export type postagemFamiliaGroupByArgs<ExtArgs extends runtime.Types.Extensions.
 export type PostagemFamiliaGroupByOutputType = {
   id: string
   cidade: string
+  criancas: number
   valor: number
   responsavel: string
   dataEhorarioInicio: string
@@ -220,6 +231,7 @@ export type postagemFamiliaWhereInput = {
   NOT?: Prisma.postagemFamiliaWhereInput | Prisma.postagemFamiliaWhereInput[]
   id?: Prisma.StringFilter<"postagemFamilia"> | string
   cidade?: Prisma.StringFilter<"postagemFamilia"> | string
+  criancas?: Prisma.IntFilter<"postagemFamilia"> | number
   valor?: Prisma.IntFilter<"postagemFamilia"> | number
   responsavel?: Prisma.StringFilter<"postagemFamilia"> | string
   dataEhorarioInicio?: Prisma.StringFilter<"postagemFamilia"> | string
@@ -229,6 +241,7 @@ export type postagemFamiliaWhereInput = {
 export type postagemFamiliaOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   cidade?: Prisma.SortOrder
+  criancas?: Prisma.SortOrder
   valor?: Prisma.SortOrder
   responsavel?: Prisma.SortOrder
   dataEhorarioInicio?: Prisma.SortOrder
@@ -241,6 +254,7 @@ export type postagemFamiliaWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.postagemFamiliaWhereInput[]
   NOT?: Prisma.postagemFamiliaWhereInput | Prisma.postagemFamiliaWhereInput[]
   cidade?: Prisma.StringFilter<"postagemFamilia"> | string
+  criancas?: Prisma.IntFilter<"postagemFamilia"> | number
   valor?: Prisma.IntFilter<"postagemFamilia"> | number
   responsavel?: Prisma.StringFilter<"postagemFamilia"> | string
   dataEhorarioInicio?: Prisma.StringFilter<"postagemFamilia"> | string
@@ -250,6 +264,7 @@ export type postagemFamiliaWhereUniqueInput = Prisma.AtLeast<{
 export type postagemFamiliaOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   cidade?: Prisma.SortOrder
+  criancas?: Prisma.SortOrder
   valor?: Prisma.SortOrder
   responsavel?: Prisma.SortOrder
   dataEhorarioInicio?: Prisma.SortOrder
@@ -267,6 +282,7 @@ export type postagemFamiliaScalarWhereWithAggregatesInput = {
   NOT?: Prisma.postagemFamiliaScalarWhereWithAggregatesInput | Prisma.postagemFamiliaScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"postagemFamilia"> | string
   cidade?: Prisma.StringWithAggregatesFilter<"postagemFamilia"> | string
+  criancas?: Prisma.IntWithAggregatesFilter<"postagemFamilia"> | number
   valor?: Prisma.IntWithAggregatesFilter<"postagemFamilia"> | number
   responsavel?: Prisma.StringWithAggregatesFilter<"postagemFamilia"> | string
   dataEhorarioInicio?: Prisma.StringWithAggregatesFilter<"postagemFamilia"> | string
@@ -276,6 +292,7 @@ export type postagemFamiliaScalarWhereWithAggregatesInput = {
 export type postagemFamiliaCreateInput = {
   id?: string
   cidade: string
+  criancas: number
   valor: number
   responsavel: string
   dataEhorarioInicio: string
@@ -285,6 +302,7 @@ export type postagemFamiliaCreateInput = {
 export type postagemFamiliaUncheckedCreateInput = {
   id?: string
   cidade: string
+  criancas: number
   valor: number
   responsavel: string
   dataEhorarioInicio: string
@@ -293,6 +311,7 @@ export type postagemFamiliaUncheckedCreateInput = {
 
 export type postagemFamiliaUpdateInput = {
   cidade?: Prisma.StringFieldUpdateOperationsInput | string
+  criancas?: Prisma.IntFieldUpdateOperationsInput | number
   valor?: Prisma.IntFieldUpdateOperationsInput | number
   responsavel?: Prisma.StringFieldUpdateOperationsInput | string
   dataEhorarioInicio?: Prisma.StringFieldUpdateOperationsInput | string
@@ -301,6 +320,7 @@ export type postagemFamiliaUpdateInput = {
 
 export type postagemFamiliaUncheckedUpdateInput = {
   cidade?: Prisma.StringFieldUpdateOperationsInput | string
+  criancas?: Prisma.IntFieldUpdateOperationsInput | number
   valor?: Prisma.IntFieldUpdateOperationsInput | number
   responsavel?: Prisma.StringFieldUpdateOperationsInput | string
   dataEhorarioInicio?: Prisma.StringFieldUpdateOperationsInput | string
@@ -310,6 +330,7 @@ export type postagemFamiliaUncheckedUpdateInput = {
 export type postagemFamiliaCreateManyInput = {
   id?: string
   cidade: string
+  criancas: number
   valor: number
   responsavel: string
   dataEhorarioInicio: string
@@ -318,6 +339,7 @@ export type postagemFamiliaCreateManyInput = {
 
 export type postagemFamiliaUpdateManyMutationInput = {
   cidade?: Prisma.StringFieldUpdateOperationsInput | string
+  criancas?: Prisma.IntFieldUpdateOperationsInput | number
   valor?: Prisma.IntFieldUpdateOperationsInput | number
   responsavel?: Prisma.StringFieldUpdateOperationsInput | string
   dataEhorarioInicio?: Prisma.StringFieldUpdateOperationsInput | string
@@ -326,6 +348,7 @@ export type postagemFamiliaUpdateManyMutationInput = {
 
 export type postagemFamiliaUncheckedUpdateManyInput = {
   cidade?: Prisma.StringFieldUpdateOperationsInput | string
+  criancas?: Prisma.IntFieldUpdateOperationsInput | number
   valor?: Prisma.IntFieldUpdateOperationsInput | number
   responsavel?: Prisma.StringFieldUpdateOperationsInput | string
   dataEhorarioInicio?: Prisma.StringFieldUpdateOperationsInput | string
@@ -335,6 +358,7 @@ export type postagemFamiliaUncheckedUpdateManyInput = {
 export type postagemFamiliaCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   cidade?: Prisma.SortOrder
+  criancas?: Prisma.SortOrder
   valor?: Prisma.SortOrder
   responsavel?: Prisma.SortOrder
   dataEhorarioInicio?: Prisma.SortOrder
@@ -342,12 +366,14 @@ export type postagemFamiliaCountOrderByAggregateInput = {
 }
 
 export type postagemFamiliaAvgOrderByAggregateInput = {
+  criancas?: Prisma.SortOrder
   valor?: Prisma.SortOrder
 }
 
 export type postagemFamiliaMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   cidade?: Prisma.SortOrder
+  criancas?: Prisma.SortOrder
   valor?: Prisma.SortOrder
   responsavel?: Prisma.SortOrder
   dataEhorarioInicio?: Prisma.SortOrder
@@ -357,6 +383,7 @@ export type postagemFamiliaMaxOrderByAggregateInput = {
 export type postagemFamiliaMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   cidade?: Prisma.SortOrder
+  criancas?: Prisma.SortOrder
   valor?: Prisma.SortOrder
   responsavel?: Prisma.SortOrder
   dataEhorarioInicio?: Prisma.SortOrder
@@ -364,6 +391,7 @@ export type postagemFamiliaMinOrderByAggregateInput = {
 }
 
 export type postagemFamiliaSumOrderByAggregateInput = {
+  criancas?: Prisma.SortOrder
   valor?: Prisma.SortOrder
 }
 
@@ -380,6 +408,7 @@ export type IntFieldUpdateOperationsInput = {
 export type postagemFamiliaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   cidade?: boolean
+  criancas?: boolean
   valor?: boolean
   responsavel?: boolean
   dataEhorarioInicio?: boolean
@@ -391,13 +420,14 @@ export type postagemFamiliaSelect<ExtArgs extends runtime.Types.Extensions.Inter
 export type postagemFamiliaSelectScalar = {
   id?: boolean
   cidade?: boolean
+  criancas?: boolean
   valor?: boolean
   responsavel?: boolean
   dataEhorarioInicio?: boolean
   dataEhorarioTermino?: boolean
 }
 
-export type postagemFamiliaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "cidade" | "valor" | "responsavel" | "dataEhorarioInicio" | "dataEhorarioTermino", ExtArgs["result"]["postagemFamilia"]>
+export type postagemFamiliaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "cidade" | "criancas" | "valor" | "responsavel" | "dataEhorarioInicio" | "dataEhorarioTermino", ExtArgs["result"]["postagemFamilia"]>
 
 export type $postagemFamiliaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "postagemFamilia"
@@ -405,6 +435,7 @@ export type $postagemFamiliaPayload<ExtArgs extends runtime.Types.Extensions.Int
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     cidade: string
+    criancas: number
     valor: number
     responsavel: string
     dataEhorarioInicio: string
@@ -803,6 +834,7 @@ export interface Prisma__postagemFamiliaClient<T, Null = never, ExtArgs extends 
 export interface postagemFamiliaFieldRefs {
   readonly id: Prisma.FieldRef<"postagemFamilia", 'String'>
   readonly cidade: Prisma.FieldRef<"postagemFamilia", 'String'>
+  readonly criancas: Prisma.FieldRef<"postagemFamilia", 'Int'>
   readonly valor: Prisma.FieldRef<"postagemFamilia", 'Int'>
   readonly responsavel: Prisma.FieldRef<"postagemFamilia", 'String'>
   readonly dataEhorarioInicio: Prisma.FieldRef<"postagemFamilia", 'String'>

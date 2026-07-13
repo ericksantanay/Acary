@@ -591,6 +591,7 @@ export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeo
 export const PostagemFamiliaScalarFieldEnum = {
   id: 'id',
   cidade: 'cidade',
+  criancas: 'criancas',
   valor: 'valor',
   responsavel: 'responsavel',
   dataEhorarioInicio: 'dataEhorarioInicio',
