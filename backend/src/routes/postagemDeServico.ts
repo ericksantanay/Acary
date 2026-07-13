@@ -6,7 +6,7 @@ const router = Router();
 
 router.post("/postarServicos", (req: Request, res: Response) => {
 
-    const {} = req.body;
+    const {cidade,  } = req.body;
 
 });
 

@@ -20,6 +20,7 @@ model usuario {
 model postagemFamilia {
   id                      String  @id @default(auto()) @map("_id") @db.ObjectId
   cidade                  String
+  criancas                Int
   valor                   Int
   responsavel             String 
   dataEhorarioInicio      String
