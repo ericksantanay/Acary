@@ -14,6 +14,8 @@ model usuario {
   senha             String
   role              String
   perfil            String
+
+  postagens         postagemFamilia[]
 }
 
 model postagemFamilia {
@@ -24,4 +26,7 @@ model postagemFamilia {
   responsavel             String 
   dataEhorarioInicio      String
   dataEhorarioTermino     String
+
+  userId                  String   @db.ObjectId
+  usuario                 usuario  @relation(fields: [userId], references: [id])
 }

@@ -1,6 +1,7 @@
 import {Router}  from "express";
 import prisma from "../lib/prisma";
 import { Request, Response } from "express";
+import {verificarToken} from "../middlewares/auth";
 
 const router = Router();
 
@@ -11,10 +12,13 @@ interface Postagem {
    responsavel: string,
    dataEhorarioInicio: string,
    dataEhorarioTermino: string
-   
 }
 
-router.post("/postarServicos", async (req: Request, res: Response) => {
+interface RequestUserId extends Request {
+    userId?: string
+}
+
+router.post("/postarServicos", verificarToken ,async (req: RequestUserId, res: Response) => {
 
     const {cidade, criancas, valor, responsavel, dataEhorarioInicio, dataEhorarioTermino} = req.body as Postagem;
 
@@ -25,7 +29,9 @@ router.post("/postarServicos", async (req: Request, res: Response) => {
     try {
 
         const criancasConvertido = Number(criancas)
-        const valorConvertido = Number(valor);
+        let valorConvertido = Number(valor);
+
+        const tranformandoEmRS = (valorConvertido % 100);
 
         if (isNaN(valorConvertido) || valorConvertido <= 0) {
             return res.status(400).json({ mensagem: "Valor inválido"});
@@ -40,7 +46,7 @@ router.post("/postarServicos", async (req: Request, res: Response) => {
             where:{
                 cidade: cidade,
                 criancas: criancasConvertido,
-                valor: valorConvertido,
+                valor: tranformandoEmRS,
                 responsavel: responsavel,
                 dataEhorarioInicio: dataEhorarioInicio,
                 dataEhorarioTermino: dataEhorarioTermino
@@ -55,8 +61,10 @@ router.post("/postarServicos", async (req: Request, res: Response) => {
                     valor: valorConvertido,
                     responsavel: responsavel,
                     dataEhorarioInicio: dataEhorarioInicio,
-                    dataEhorarioTermino: dataEhorarioTermino
-                }
+                    dataEhorarioTermino: dataEhorarioTermino,
+
+                    userId: req.userId
+                } as any
             });
 
             return res.status(201).json({mensagem: "Serviço criado com sucesso."});
