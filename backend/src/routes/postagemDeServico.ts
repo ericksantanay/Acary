@@ -31,8 +31,6 @@ router.post("/postarServicos", verificarToken ,async (req: RequestUserId, res: R
         const criancasConvertido = Number(criancas)
         let valorConvertido = Number(valor);
 
-        const tranformandoEmRS = (valorConvertido % 100);
-
         if (isNaN(valorConvertido) || valorConvertido <= 0) {
             return res.status(400).json({ mensagem: "Valor inválido"});
         };
@@ -46,10 +44,11 @@ router.post("/postarServicos", verificarToken ,async (req: RequestUserId, res: R
             where:{
                 cidade: cidade,
                 criancas: criancasConvertido,
-                valor: tranformandoEmRS,
+                valor: valorConvertido,
                 responsavel: responsavel,
                 dataEhorarioInicio: dataEhorarioInicio,
-                dataEhorarioTermino: dataEhorarioTermino
+                dataEhorarioTermino: dataEhorarioTermino,
+                userId: req.userId
             }
         });
 
@@ -62,7 +61,6 @@ router.post("/postarServicos", verificarToken ,async (req: RequestUserId, res: R
                     responsavel: responsavel,
                     dataEhorarioInicio: dataEhorarioInicio,
                     dataEhorarioTermino: dataEhorarioTermino,
-
                     userId: req.userId
                 } as any
             });
