@@ -1,4 +1,4 @@
-import { Router } from "express";
+import e, { Router } from "express";
 import prisma from "../lib/prisma";
 import { Request, Response } from "express";
 import { verificarToken } from "../middlewares/auth";
@@ -33,7 +33,16 @@ router.get("/meusServicos", verificarToken, async (req: RequestUserId, res: Resp
             }
         });
 
-        return res.status(200).json(meusServicos)
+        const meusServicosatualizadoComOValor = meusServicos.map((el) => {
+
+            return {
+                ...el,
+                valor: el.valor / 100
+            }
+
+        })
+
+        return res.status(200).json(meusServicosatualizadoComOValor);
         
     } catch (error) {
         return res.status(500).json({mensagem: "Erro no servidor."});
