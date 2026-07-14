@@ -12,6 +12,7 @@ import refreshToken from "./routes/refreshToken";
 import postagemUsuario from "./routes/postagemDeServico";
 import carregarServicos from "./routes/carregarServicos";
 import postagemIndividual from "./routes/carregarPostagemDeUmUsuario";
+import barraDePesquisa from "./routes/barraDePesquisa";
 
 // Dotoenv
 import "dotenv/config";
@@ -32,6 +33,7 @@ app.use(refreshToken);
 app.use(postagemUsuario);
 app.use(carregarServicos);
 app.use(postagemIndividual);
+app.use(barraDePesquisa);
 
 let porta = 3000
 
