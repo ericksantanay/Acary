@@ -15,7 +15,16 @@ router.get("/carregarServicos", async (req: Request, res: Response) => {
         return res.status(404).json({mensagem: "Nem um serviço encontardo"});
       };
 
-      res.status(200).json(servicosDisponiveis);
+      const servicosDisponiveisAtualizado = servicosDisponiveis.map((el) => {
+
+        return {
+          ...el,
+          valor: el.valor / 100
+        }
+
+      })
+
+      res.status(200).json(servicosDisponiveisAtualizado);
 
     } catch (error) {
         return res.status(500).json({mensagem: "Erro no servidor."});
