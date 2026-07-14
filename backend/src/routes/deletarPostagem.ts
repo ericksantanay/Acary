@@ -5,7 +5,23 @@ import {verificarToken} from "../middlewares/auth";
 
 const router = Router();
 
-router.delete("/deletarPostagem", (req: Request, res: Response) => {
+router.delete("/deletarPostagem/:id", verificarToken, async (req: Request, res: Response) => {
+
+    const deleteId = req.params.id as string;
+
+    try {
+        
+        await prisma.postagemFamilia.delete({
+            where:{
+                id: deleteId
+            }
+        });
+
+        return res.status(200).json({mensagem: "Postagem excluida com sucesso"});
+        
+    } catch (error) {
+        return res.status(500).json({mensagem: "Erro no servidor"});
+    };
 
 });
 
