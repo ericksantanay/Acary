@@ -71,6 +71,7 @@ router.post("/postarServicos", verificarToken ,async (req: RequestUserId, res: R
         };
         
     } catch (error) {
+        console.log(error);
         return res.status(500).json({mensagem: "Erro no servidor."})
     };
 
