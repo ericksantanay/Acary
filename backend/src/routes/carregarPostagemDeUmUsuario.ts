@@ -2,6 +2,7 @@ import { Router } from "express";
 import prisma from "../lib/prisma";
 import { Request, Response } from "express";
 import { verificarToken } from "../middlewares/auth";
+// Carregar Postagem do propio usuario!
 
 const router = Router();
 
