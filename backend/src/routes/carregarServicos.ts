@@ -17,12 +17,6 @@ router.get("/carregarServicos", verificarToken, async (req: RequestUserId, res: 
         return res.status(401).json({ mensagem: "Usuário não autenticado." });
       };
 
-      const servicosDisponiveis = await prisma.postagemFamilia.findMany();
-
-      if (servicosDisponiveis.length === 0) {
-        return res.status(404).json({mensagem: "Nem um serviço encontardo"});
-      };
-
       const usuario = await prisma.usuario.findUnique({
         where:{
           id: req.userId
@@ -35,6 +29,12 @@ router.get("/carregarServicos", verificarToken, async (req: RequestUserId, res: 
 
       if (usuario.perfil !==  "Babá") {
         return res.status(401).json({mensagem: "Voçê não tem autorização!"});
+      };
+
+      const servicosDisponiveis = await prisma.postagemFamilia.findMany();
+
+      if (servicosDisponiveis.length === 0) {
+        return res.status(404).json({mensagem: "Nem um serviço encontardo"});
       };
 
       const servicosDisponiveisAtualizado = servicosDisponiveis.map((el) => {
