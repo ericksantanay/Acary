@@ -11,7 +11,7 @@ router.get("/carregarServicos", async (req: Request, res: Response) => {
     try {
       const servicosDisponiveis = await prisma.postagemFamilia.findMany();
 
-      if (!servicosDisponiveis) {
+      if (servicosDisponiveis.length === 0) {
         return res.status(404).json({mensagem: "Nem um serviço encontardo"});
       };
 
