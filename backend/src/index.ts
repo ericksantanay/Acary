@@ -15,6 +15,7 @@ import postagemIndividual from "./routes/carregarPostagemDeUmUsuario";
 import barraDePesquisa from "./routes/barraDePesquisa";
 import deletraPostagem from "./routes/deletarPostagem";
 import postagemAtualizada from "./routes/atualizarPostagem";
+import candidatura from "./routes/candidatos";
 
 // Dotoenv
 import "dotenv/config";
@@ -38,6 +39,7 @@ app.use(postagemIndividual);
 app.use(barraDePesquisa);
 app.use(deletraPostagem);
 app.use(postagemAtualizada);
+app.use(candidatura);
 
 let porta = 3000
 
