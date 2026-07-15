@@ -30,3 +30,8 @@ model postagemFamilia {
   userId                  String   @db.ObjectId
   usuario                 usuario  @relation(fields: [userId], references: [id])
 }
+
+model candidatos {
+  id                      String  @id @default(auto()) @map("_id") @db.ObjectId
+  candidatos              String
+}
