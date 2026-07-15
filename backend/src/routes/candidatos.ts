@@ -37,10 +37,10 @@ router.post ("/candidatar/:id", verificarToken, async (req: RequestUserId, res: 
             return res.status(404).json({mensagem: "Essa babá não existe."});
         };
 
-        const candidatosLista = await prisma.candidatos.findFirst({
+        const candidatosLista = await prisma.candidatura.findFirst({
             where: {
-                id: idPostagem,
-                candidatos: baba.nome  
+                postagemId: idPostagem,
+                usuarioId: req.userId 
             } 
         });
 
@@ -53,10 +53,10 @@ router.post ("/candidatar/:id", verificarToken, async (req: RequestUserId, res: 
         };
 
 
-        const candidatura = await prisma.candidatos.create({
+        const candidatura = await prisma.candidatura.create({
             data:{
-                candidatos: baba.nome,
-                id: baba.id
+                usuarioId: baba.id,
+                postagemId: postagem.id
             }
         });
 
