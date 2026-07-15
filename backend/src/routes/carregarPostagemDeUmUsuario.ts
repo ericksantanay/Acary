@@ -33,7 +33,7 @@ router.get("/meusServicos", verificarToken, async (req: RequestUserId, res: Resp
             }
         });
 
-        if (!meusServicos) {
+        if (meusServicos.length === 0) {
             return res.status(404).json({mensagem: "Voçê não fez nem uma postagem."});
         };
 
