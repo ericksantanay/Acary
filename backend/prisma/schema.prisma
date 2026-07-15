@@ -16,6 +16,7 @@ model usuario {
   perfil            String
 
   postagens         postagemFamilia[]
+  candidaturas      candidatura[]
 }
 
 model postagemFamilia {
@@ -27,11 +28,22 @@ model postagemFamilia {
   dataEhorarioInicio      String
   dataEhorarioTermino     String
 
+  // Família que criou a postagem
   userId                  String   @db.ObjectId
   usuario                 usuario  @relation(fields: [userId], references: [id])
+
+  // Babás que se candidataram
+  candidaturas            candidatura[]
 }
 
-model candidatos {
+model candidatura {
   id                      String  @id @default(auto()) @map("_id") @db.ObjectId
-  candidatos              String
+
+  // Babá que fez a candidatura
+  usuarioId               String  @db.ObjectId
+  usuario                 usuario @relation(fields: [usuarioId], references: [id])
+
+  // Postagem em que ela se candidatou
+  postagemId              String  @db.ObjectId
+  postagem                postagemFamilia @relation(fields: [postagemId], references: [id])
 }
