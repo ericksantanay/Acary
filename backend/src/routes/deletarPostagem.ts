@@ -27,6 +27,8 @@ router.delete("/deletarPostagem/:id", verificarToken, async (req: Request, res: 
         return res.status(500).json({mensagem: "Erro no servidor" + error});
     };
 
+// Arrumar amanha! esta dando erro no prisma por conta que o prisma esta relacional!
+
 });
 
 export default router;
