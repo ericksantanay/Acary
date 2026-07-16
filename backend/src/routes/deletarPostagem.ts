@@ -15,44 +15,38 @@ router.delete("/deletarPostagem/:id", verificarToken, async (req: RequestUserId,
 
     try {
 
-        if (!deleteId) {
-            return res.status(404).json({
-                mensagem: "Postagem não existe."
+        if (!req.userId) {
+            return res.status(401).json({
+                mensagem: "Usuário não autenticado."
             });
-        }
-
-        const candidaturaDelete = await prisma.candidatura.findFirst({
-            where:{
-                postagemId: deleteId 
-            } as any
-        });
+        };
 
         const postagemDelete = await prisma.postagemFamilia.findFirst({
             where: {
-                id: deleteId as string
+                id: deleteId as string,
+                userId: req.userId
             }
         });
 
-        if (!candidaturaDelete || !postagemDelete) {
-            return res.status(404).json({mensagem: "Essa postagem já foi excluida."});
-        }
+        if (!postagemDelete) {
+            return res.status(404).json({
+                mensagem: "Postagem não encontrada ou não pertence ao usuário."
+            });
+        };
 
-        // Apaga todas as candidaturas dessa postagem
+        // Apaga todas as candidaturas da postagem
         await prisma.candidatura.deleteMany({
             where: {
                 postagemId: deleteId as string
             }
         });
 
-        // Agora apaga a postagem
+        // Apaga a postagem
         await prisma.postagemFamilia.delete({
             where: {
                 id: deleteId as string
             }
         });
-
-        ;
-
 
         return res.status(200).json({
             mensagem: "Postagem excluída com sucesso."
@@ -62,8 +56,7 @@ router.delete("/deletarPostagem/:id", verificarToken, async (req: RequestUserId,
         return res.status(500).json({
             mensagem: "Erro no servidor."
         });
-    }
-
+    };
 });
 
 export default router;
