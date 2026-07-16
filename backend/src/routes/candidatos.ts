@@ -31,8 +31,6 @@ router.post ("/candidatar/:id", verificarToken, async (req: RequestUserId, res: 
             }
         });
 
-        
-
         if (!baba) {
             return res.status(404).json({mensagem: "Essa babá não existe."});
         };

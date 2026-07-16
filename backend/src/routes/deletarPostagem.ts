@@ -14,6 +14,8 @@ router.delete("/deletarPostagem/:id", verificarToken, async (req: Request, res: 
         if (!deleteId) {
             return res.status(404).json({mensagem: "Postagem não existe."});
         };
+
+        
         
         await prisma.postagemFamilia.delete({
             where:{
