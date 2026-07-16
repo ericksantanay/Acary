@@ -1,0 +1,78 @@
+/* Header */
+header {
+    margin-bottom: 30px;
+}
+
+/* Div dentro do header */
+#container-logo {
+    text-align: center;
+}
+
+/* Imagem (Logo Acary) */
+#container-logo > img {
+    width: 240px;
+}
+
+/* Titulo H1 */
+#container-logo > h1 {
+    color: var(--azul);
+    font-weight: bold;
+}
+
+/* Main */
+main {
+    padding: 10px;
+}
+
+/* Card Baba */
+.card-redirecionamento {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+    border-radius: 15px;
+    display: flex;
+    gap: 60%;
+    max-height: 100px;
+    border: 1px solid var(--azul);
+    margin-bottom: 30px;
+    padding: 15px;
+}
+
+/* Titulo do card */
+.titulo-card > h2 {
+    color: var(--cinza);
+    font-weight: 400;
+    line-height: 33px;
+}
+
+/* Strong */
+.titulo-card > h2 > strong {
+    color: var(--preto);
+}
+
+/* Imagem da seta */
+.container-seta {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--azul);
+}
+
+/* Seta */
+.container-seta > img {
+    width: 40px;
+    height: 40px;
+}
+
+#link-cadastro > a {
+    color:  var(--preto);
+    text-decoration: none;
+}
+
+#link-cadastro > a > span {
+    color:  var(--azul);
+}

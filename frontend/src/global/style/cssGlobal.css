@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Huninn&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Huninn&display=swap');
+
+:root {
+
+    /* Fontes */
+    --inter: "Inter", sans-serif;
+    --huninn: "Huninn", sans-serif;
+
+    /* Cores */
+    --azul: #004AAD; /* esse azul eu tenho que transparecer ele para o botão voltar*/
+    --cinza: #999999;
+    --preto: #000000;
+    --branco: #FFFFFF;
+    --quase-Branco: #F9F8F6;
+    --azul-link: #095ECE;
+    --vermelho: #FF0000;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: var(--inter);
+}
