@@ -1,0 +1,20 @@
+/* Header */
+header {
+    margin-bottom: 30px;
+}
+
+/* Div dentro do header */
+#container-logo {
+    text-align: center;
+}
+
+/* Imagem (Logo Acary) */
+#container-logo > img {
+    width: 240px;
+}
+
+/* Titulo H1 */
+#container-logo > h1 {
+    color: var(--azul);
+    font-weight: bold;
+}
