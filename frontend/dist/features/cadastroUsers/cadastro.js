@@ -18,7 +18,7 @@ if (formularioCadastro) {
             ;
             const URL = "https://backend-acary.onrender.com";
             try {
-                fetch(`${URL}/login`, {
+                fetch(`${URL}/cadastroDeUsuarios`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -44,6 +44,7 @@ if (formularioCadastro) {
                 });
             }
             catch (error) {
+                console.log(error);
                 return alert("Erro no servidor");
             }
             ;
