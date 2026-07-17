@@ -1,0 +1,89 @@
+main {
+    padding: 10px;
+}
+
+/* Section */
+section {
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.141) 0px 0px 0px 1px;
+}
+
+/* Formulario de cadastro */
+#fomulario-cadastro {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Div aonde esta os inputs e label */
+.container-campo {
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label */
+.container-campo > label {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+/* Icone da senha */
+.container-campo > #mostrar-senha {
+    position: fixed;
+    bottom: 256px;
+    left: 82%;
+    color: var(--azul);
+}
+
+/* Input e o select */
+.container-campo > input, #perfil {
+    box-shadow: rgba(0, 0, 0, 0.128) 0px 1px 4px;
+    width: 100%;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    outline-color: var(--azul);
+}
+
+.container-campo > #perfil {
+    border: 1px solid rgba(0, 0, 0, 0.617);
+}
+
+/* Container dos botoes */
+.container-botoes {
+    display: flex;
+    gap: 5%;
+    margin-bottom: 10px;
+}
+
+/* Botões */
+.container-botoes > button {
+    padding: 10px 50px;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--huninn);
+    font-size: 20px;
+}
+
+/* Btn voltar */
+#btn-voltar {
+    border: 1px solid var(--azul);
+    background-color: #004bad36;
+}
+
+/* Link de redirecionamento */
+#btn-voltar > a {
+    color: var(--azul);
+    text-decoration: none;
+}
+
+/* Btn cadastrar */
+#btn-cadastro {
+    color: var(--branco);
+    background-color: var(--azul);
+}
