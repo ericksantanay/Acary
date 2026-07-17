@@ -6,10 +6,10 @@ if (formularioCadastro) {
 
         carregamento.preventDefault();
 
-        const nome = document.getElementById('nome');
-        const email = document.getElementById('email');
-        const senha = document.getElementById('senha');
-        const perfil = document.getElementById('perfil');
+        let nome = document.getElementById('nome');
+        let email = document.getElementById('email');
+        let senha = document.getElementById('senha');
+        let perfil = document.getElementById('perfil');
 
         if (nome instanceof HTMLInputElement && email instanceof HTMLInputElement && senha instanceof HTMLInputElement && perfil instanceof HTMLSelectElement) {
 
