@@ -29,6 +29,11 @@ app.use(cookieParser()); // Configura o middleware para ler cookies (req.cookies
 // cors
 app.use(cors()); // Depois colocar só as URLS que serão permitidas
 
+
+app.get("/teste", (req, res) => {
+  res.json({ ok: true });
+});
+
 // ######################################
 // conectando as rotas no servidor
 app.use(cadastroUser);
