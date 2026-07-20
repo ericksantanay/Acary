@@ -1,0 +1,10 @@
+.container-inputs-e-label {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Formulario baba */
+#formulario-login-baba {
+    display: none;
+}

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="src/global/style/cssGlobal.css">
     <link rel="stylesheet" href="src/features/inicio/inicio.css">
     <link rel="stylesheet" href="src/global/style/header.css">
+    <link rel="stylesheet" href="src/features/inicio/formularios.css">
 </head>
 <body>
 
@@ -16,7 +17,9 @@
 
         <div id="container-logo">
             <img src="src/assets/image/Acary(Logo).png" alt="Logo Acary">
-            <h1>Olá! Seja bem-vindo(a).</h1>
+            <h1 id="seja-bem-vindo">Olá! Seja bem-vindo(a).</h1>
+            <h1 id="titulo-familia">Família</h1>
+            <h1 id="titulo-baba">Babá</h1>
         </div>
 
     </header>
@@ -34,17 +37,62 @@
                 <img src="src/assets/icones/seta-link (1).png" alt="Seta Link">
             </div>
 
-        </div>
+        </div>    
 
-        <div class="card-redirecionamento">
+        <div class="card-redirecionamento" onclick="mudarParaBaba()">
             
             <div class="titulo-card">
-                <h2>Eu sou <br> <strong>Família</strong></h2>
+                <h2>Eu sou <br> <strong>Babá</strong></h2>
             </div>
             
             <div class="container-seta">
                 <img src="src/assets/icones/seta-link (1).png" alt="Seta Link">
             </div>
+        </div>
+
+        <div id="container-acesso">
+
+            <form id="formulario-login-familia">
+
+                <div class="container-inputs-e-label">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="Ex: examplo123@gmail.com" required>
+                </div>
+
+                <div class="container-inputs-e-label">
+                    <label for="senha">Senha</label>
+                    <input type="email" name="senha" id="senha" placeholder="Ex: exemplo1234" required>
+                </div>
+                
+                <div id="btn-familia">
+                    <button onclick="voltar()" id="btn-voltar">Voltar</button>
+                    <button type="submit" id="btn-acessar-familia">Acessar</button>
+                </div>
+
+            </form>
+
+
+            <!-- Formulario login babas -->
+            <form id="formulario-login-baba">
+
+                <div class="container-inputs-e-label">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="Ex: examplo123@gmail.com " required>
+                </div>
+
+                <div class="container-inputs-e-label">
+                    <label for="senha">Senha</label>
+                    <input type="email" name="senha" id="senha" placeholder="Ex: exemplo1234" required>
+                </div>
+
+                
+                <div id="btn-baba">
+                    <button onclick="voltar()" id="btn-voltar">Voltar</button>
+                    <button type="submit" id="btn-acessar-baba">Acessar</button>
+                </div>
+
+            </form>
+
         </div>
 
         <!-- Link de cadastro dos usuarios -->
