@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../global//style/cssGlobal.css">
     <link rel="stylesheet" href="../../global/style/header.css">
     <link rel="stylesheet" href="cadastro.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=visibility" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_" />
 </head>
 <body>
 
@@ -40,7 +40,7 @@
                 <div class="container-campo">
                     <label for="senha">Senha</label>
                     <input type="password" name="senha" id="senha" placeholder="Ex: exemplo123" required>
-                    <span class="material-symbols-outlined" id="mostrar-senha">visibility</span>
+                    <span class="material-symbols-outlined" id="mostrar-senha" onclick="mostrarSenha()">visibility</span>
                 </div>
 
                 <div class="container-campo">
@@ -52,7 +52,7 @@
                 </div>
                 
                 <div class="container-botoes">
-                    <button id="btn-voltar"><a href="#">Voltar</a></button>
+                    <button id="btn-voltar"><a href="http://127.0.0.1:5500/frontend/index.html">Voltar</a></button>
                     <button type="submit" id="btn-cadastro">Cadastrar</button>
                 </div>
 
@@ -62,6 +62,6 @@
     </main>
     
     <script src="../../../dist/features/cadastroUsers/cadastro.js"></script>
-
+    <script src="../../../dist/features/cadastroUsers/mostrarSenha.js"></script>
 </body>
 </html>
