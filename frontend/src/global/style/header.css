@@ -18,3 +18,11 @@ header {
     color: var(--azul);
     font-weight: bold;
 }
+
+#titulo-familia {
+    display: none;
+}
+
+#titulo-baba {
+    display: none;
+}
