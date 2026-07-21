@@ -5,7 +5,9 @@ main {
 
 /* Card Baba */
 .card-redirecionamento {
+    display: flex;
     align-items: center;
+
     cursor: pointer;
     border-radius: 15px;
     display: flex;
