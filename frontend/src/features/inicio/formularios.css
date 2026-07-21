@@ -1,10 +1,56 @@
+/* Formulario familia */
+#formulario-login-familia {
+    display: none;
+}
+
 .container-inputs-e-label {
     display: flex;
     flex-direction: column;
+    gap: 12px;
+}
+
+.container-inputs-e-label > label {
+    font-size: 22px ;
+}
+
+.container-inputs-e-label > input {
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid var(--azul);
+    margin-bottom: 24px;
+    font-size: 18px;
+    outline-color: var(--azul);
+}
+
+#btn-familia, #btn-baba {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+#btn-familia > button, #btn-baba > button {
+    font-size: 18px;
+    padding: 10px 50px;
+    border-radius: 60px;
+    font-family: var(--huninn);
+}
+
+
+.btn-voltar {
+    border: 1px solid var(--azul);
+    background-color: #004bad36;
+    color: var(--azul);
+}
+
+/*  */
+#btn-acessar-baba, #btn-acessar-familia {
+    border: none;
+    background-color: var(--azul);
+    color: var(--branco);
 }
 
 
 /* Formulario baba */
 #formulario-login-baba {
-    display: none;
+    /* display: none; */
 }

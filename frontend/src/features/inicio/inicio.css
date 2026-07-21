@@ -5,12 +5,10 @@ main {
 
 /* Card Baba */
 .card-redirecionamento {
-    display: flex;
     align-items: center;
-
     cursor: pointer;
     border-radius: 15px;
-    display: flex;
+    display: none;
     gap: 60%;
     max-height: 100px;
     border: 1px solid var(--azul);
