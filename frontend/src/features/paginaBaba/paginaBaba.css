@@ -1,0 +1,84 @@
+header {
+    width: 100%;
+    padding: 0px 5%;
+    border-bottom: 1px solid #A4A4A4;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Icone de hamburuguer */
+#menu-burguer {
+   font-size: 35px;
+}
+
+/* Logo imagem*/
+#container-logo > img {
+    width: 140px;
+}
+
+/* Icone do usuario */
+#container-icone-usuario  > img {
+    width: 35px;
+}
+
+#container-conteudo-mobile {
+    display: none;
+}
+
+#conteudo-menu {
+    position: fixed;
+    padding: 20px 30px;
+    top: 100px;
+    left: 0px;
+    background-color: var(--branco);
+    border-radius: 5px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#conteudo-menu > a {
+    color: var(--preto);
+    text-decoration: none;
+}
+
+/* Main */
+main {
+    padding: 10px;
+    margin-top: 20px;
+}
+
+
+/* ####################### */
+/* Barra de pesquisa */
+.container-barra-de-pesquisa {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+/* Input barra de pesquisa */
+.container-barra-de-pesquisa > input {
+    outline: none;
+    padding: 10px;
+    width: 85%;
+    border: 1px solid var(--azul);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* Imagem da lupa */
+.container-barra-de-pesquisa > img {
+    width: 38px;
+    border: 1px solid var(--azul);
+    padding: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
