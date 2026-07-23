@@ -37,7 +37,7 @@ function voltar() {
     h1Familia.style.display = 'none';
     h1Baba.style.display = 'none';
     cardsFamiliaEBabas.forEach((card) => {
-        card.style.display = "block";
+        card.style.display = "flex";
     });
     formularioFamilia.style.display = 'none';
     formularioBaba.style.display = 'none';

@@ -55,7 +55,7 @@ function voltar() {
 
 
     cardsFamiliaEBabas.forEach((card) => {
-        card.style.display = "block";
+        card.style.display = "flex";
     })
     formularioFamilia.style.display = 'none'
     formularioBaba.style.display = 'none'
