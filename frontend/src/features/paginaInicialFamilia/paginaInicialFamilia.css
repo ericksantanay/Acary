@@ -49,3 +49,24 @@ nav {
     color: var(--preto);
     text-decoration: none;
 }
+
+/* Main */
+main {
+    padding: 20px;
+}
+
+#container-propostas-recebidas {
+    display: flex;
+    justify-content: end;
+    gap: 7px;
+}
+
+#container-propostas-recebidas > img {
+    width: 35px;
+}
+
+#quantidade-de-propostas {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--vermelho);
+}
