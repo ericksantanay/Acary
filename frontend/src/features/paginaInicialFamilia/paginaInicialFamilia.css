@@ -70,3 +70,13 @@ main {
     font-weight: bold;
     color: var(--vermelho);
 }
+
+/* Seção postagem */
+#secao-postagens-feitas {
+    margin-top: 30px;
+}
+
+/* H1 Postagens feitas */
+#titulo-postagem {
+    text-align: center;
+}
