@@ -25,7 +25,7 @@
 
             <div id="container-icone-usuario">
                 <img src="../../assets/icones/usuario.png" alt="Icone Usuarios">
-                <svg width="30" height="30" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                <svg id="mostrar-form" width="30" height="30" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
             </div>
 
         </nav>
@@ -111,9 +111,59 @@
             <h1 >Você não tem nem um postagem😐</h1>
         </section>
 
+        <section id="secao-adicionar-postagem">
+            
+            <article class="container-formulario">
+
+                <div id="container-funcao-fechar-aba">
+                    <!-- Evento de fechar a aba -->
+                    <svg id="fechar-aba" width="25" height="25" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </div>
+
+                <form id="formulario-postagem">
+
+                    <div class="container-campos">
+                        <label for="cidade-campo">Cidade</label>
+                        <input type="text" name="cidade-campo" id="cidade-campo" placeholder="Exemplo: São Paulo" required>
+                    </div>
+
+                    <div class="container-campos">
+                        <label for="valor-campo">Valor</label>
+                        <input type="text" name="valor-campo" id="valor-campo" placeholder="Exemplo: R$120,00" required>
+                    </div>
+
+                    <div class="container-campos">
+                        <label for="criancas-campo">Crianças</label>
+                        <input type="number" name="criancas-campo" id="criancas-campo" placeholder="Exemplo: 3" required> 
+                    </div>
+
+                    <div class="container-campos">
+                        <label for="responsavel-campo">Responsavel</label>
+                        <input type="text" name="responsavel-campo" id="responsavel-campo" placeholder="Exemplo: João" required> 
+                    </div>
+
+
+                    <div class="container-campos">
+                        <label for="data-campo">Data de inicio e horario</label>
+                        <input type="datetime-local" name="data-campo" id="data-campo" required> 
+                    </div>
+
+                    <div class="container-campos">
+                        <label for="data-final-campo">Data de termino e horario</label>
+                        <input type="datetime-local" name="data-final-campo" id="data-final-campo" required> 
+                    </div>
+
+                    <button type="submit" id="btn-postagem">Postar</button>
+
+                </form>
+
+            </article>
+
+        </section>
+
     </main>
 
     <script src="../../../dist/features/paginaInicialFamilia/menu.js"></script>
-    
+    <script src="../../../dist/features/paginaInicialFamilia/fecharAba.js"></script>
 </body>
 </html>

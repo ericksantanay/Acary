@@ -127,3 +127,71 @@ main {
     width: 25px;
     margin: 0 auto;  
 }
+
+/* ################################### */
+/* Parte do formulario (Postagem)*/ 
+#secao-adicionar-postagem {
+    display: none;
+    width: 90%;
+    position: absolute;
+    top: 10%;
+    left: auto;
+    background-color: var(--branco);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 10px;
+}
+
+/* container do X */
+#container-funcao-fechar-aba {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+/* Formulario */
+#formulario-postagem {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Div com o label e o input */
+.container-campos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Label */
+.container-campos > label {
+    font-size: 20px;
+}
+
+/* Input */
+.container-campos > input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--azul);
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+/* Botão da postagem */
+#btn-postagem {
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    border: none;
+    color: var(--azul);
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #004bad2a;
+    border: 1px solid var(--azul);
+    transition: .3s ease-in-out;
+}
+
+#btn-postagem:hover {
+    color: var(--branco);
+    background-color: #004bad;
+}
