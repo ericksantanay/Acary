@@ -25,14 +25,14 @@ router.post("/loginUsuario", async (req: Request, res: Response) => {
 
         // Validação se o usuario existe
         if (!user) {
-            return res.status(404).json({mensagem: "Usuário ou senha incorretos"});
+            return res.status(401).json({mensagem: "Usuário ou senha incorretos"});
         };
 
         const password = await bcrypt.compare(senha, user.senha);
 
         // Verificando se a senha esta correta;
         if (!password) {
-            return res.status(404).json({mensagem: "Usuário ou senha incorretos"})
+            return res.status(401).json({mensagem: "Usuário ou senha incorretos"})
         }
 
         // Opções dos cookie
