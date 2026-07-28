@@ -85,7 +85,8 @@ if (formBabas) {
                     return location.replace("http://127.0.0.1:5500/frontend/src/features/paginaBaba/paginaBaba.html");
                 }
             }).catch((error) => {
-                console.log("Baba" + error);
+                console.log("Baba");
+                console.log(error);
                 return alert("Erro no servidor");
             });
         }

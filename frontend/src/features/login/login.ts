@@ -110,7 +110,8 @@ if (formBabas) {
                 }
 
             }).catch((error) => {
-                console.log("Baba" + error);
+                console.log("Baba");
+                console.log(error)
                 return alert("Erro no servidor");
             });
         };
