@@ -9,21 +9,21 @@ if (formFamilias) {
         impedirFormFamilia.preventDefault();
 
         // Inputs
-        const email = document.getElementById('email');
-        const senha = document.getElementById('senha');
+        const emailFamilia = document.getElementById('email');
+        const senhaFamilia = document.getElementById('senha');
 
-        if (email instanceof HTMLInputElement && senha instanceof HTMLInputElement) {
+        if (emailFamilia instanceof HTMLInputElement && senhaFamilia instanceof HTMLInputElement) {
 
-            const emailValue = email.value.trim();
-            const senhaValue = senha.value.trim();
+            const emailValue = emailFamilia.value.trim();
+            const senhaValue = senhaFamilia.value.trim();
 
             if (!emailValue || !senhaValue) {
                 return alert("Preencha os campos corretamente");
             };
 
-            try {
+            
                 
-                const URL = "https://backend-acary.onrender.com";
+                const URL:string = "https://backend-acary.onrender.com";
                 
                 fetch(`${URL}/loginUsuario`, {
                     method: "POST",
@@ -46,17 +46,14 @@ if (formFamilias) {
                     };
 
                     if (dados.mensagem === "Login efetuado com sucesso") {
-                        window.location.
-                        return alert("Login efetuado com sucesso");
+                        alert("Login efetuado com sucesso");
+                        return window.location.replace("http://127.0.0.1:5500/frontend/src/features/paginaInicialFamilia/paginaInicialFamilia.html");
+                        
                     };
-
-
-                })
-
-            } catch (error) {
-                return alert("Erro no servidor");
-            };
-
+                }).catch((error) => {
+                    console.log(error)
+                    return alert("Erro no servidor");
+                });
         };
 
     });
@@ -68,4 +65,54 @@ if (formFamilias) {
 
 if (formBabas) {
 
-}
+    formBabas.addEventListener("submit", (impedirFormBaba) => {
+
+        impedirFormBaba.preventDefault();
+
+        const emailBaba = document.getElementById('email-baba');
+        const senhaBaba = document.getElementById('senha-baba');
+
+        if (emailBaba instanceof HTMLInputElement && senhaBaba instanceof HTMLInputElement) {
+
+            const emailBabaValue = emailBaba.value.trim();
+            const senhaBabaValue = senhaBaba.value.trim();
+
+            if (!emailBabaValue || !senhaBabaValue) {
+                return alert("Preencha os campos corretamente");
+            };
+
+
+            const URLBaba: string = "https://backend-acary.onrender.com"; 
+
+            fetch(`${URLBaba}/loginUsuario`, {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: emailBaba,
+                senha: senhaBaba
+            })
+            })
+            .then((res) => res.json())
+            .then((dados) => {
+
+                console.log(dados)
+
+                if (dados.mensagem === "Usuário ou senha incorretos") {
+                    return alert("Usuário ou senha incorretos");
+                };
+
+                if (dados.mensagem === "Login efetuado com sucesso") {
+                    alert("Login efetuado com sucesso")
+                    return location.replace("http://127.0.0.1:5500/frontend/src/features/paginaBaba/paginaBaba.html")
+                }
+
+            }).catch((error) => {
+                console.log("Baba" + error);
+                return alert("Erro no servidor");
+            });
+        };
+    });
+};
