@@ -39,14 +39,14 @@ router.post("/loginUsuario", async (req: Request, res: Response) => {
          const cookie1Config: CookieOptions = {
             maxAge: 10* 60 * 1000, // 10 minutos
             httpOnly: true, //JavaScript não pode acessar esse cookie
-            secure: true, // Quando for para producao deixar true!
+            secure: false, // Quando for para producao deixar true!
             sameSite: 'lax'  // Protege contra ataques CSRF
         };
 
         const cookie2Config: CookieOptions = {
             maxAge: 7 * 24 * 60 * 60 * 1000, // 7 dias
             httpOnly: true, //JavaScript não pode acessar esse cookie
-            secure: true, // Quando for para producao deixar true!
+            secure: false, // Quando for para producao deixar true!
             sameSite: 'lax' // Protege contra ataques CSRF
         }
 
