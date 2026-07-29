@@ -1,4 +1,5 @@
 "use strict";
+console.log("Entrou na verificação");
 function verificarLogin() {
     const URLLoginUser = "https://backend-acary.onrender.com";
     fetch(`${URLLoginUser}/verificarLogin`, {

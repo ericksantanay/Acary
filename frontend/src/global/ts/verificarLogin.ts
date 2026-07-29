@@ -1,3 +1,4 @@
+console.log("Entrou na verificação");
 function verificarLogin() {
     
     const URLLoginUser: string = "https://backend-acary.onrender.com";
