@@ -1,4 +1,3 @@
-console.log("Entrou na verificação");
 function verificarLogin() {
     
     const URLLoginUser: string = "https://backend-acary.onrender.com";
@@ -16,7 +15,7 @@ function verificarLogin() {
 
         if (dados.mensagem !== "Autenticado") {
             alert("Voce nao fez o login")
-            return window.location.replace("http://127.0.0.1:5500/frontend/index.html")
+            return window.location.replace("http://127.0.0.1:5500/frontend/index.html");
         };
 
     });
