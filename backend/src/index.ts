@@ -29,8 +29,10 @@ app.use(cookieParser()); // Configura o middleware para ler cookies (req.cookies
 // cors
 app.use(cors({
     origin: [
-        "http://127.0.0.1:5500",
-        "http://localhost:5500"
+        "http://127.0.0.1:5500/frontend/index.html",
+        "http://127.0.0.1:5500/frontend/src/features/paginaBaba/paginaBaba.html",
+        "http://127.0.0.1:5500/frontend/src/features/paginaInicialFamilia/paginaInicialFamilia.html",
+        
     ],
     credentials: true
 })); // Depois colocar só as URLS que serão permitidas
