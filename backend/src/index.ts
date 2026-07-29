@@ -17,6 +17,7 @@ import deletraPostagem from "./routes/deletarPostagem";
 import postagemAtualizada from "./routes/atualizarPostagem";
 import candidatura from "./routes/candidatos";
 import carregarCandidato from "./routes/carregarCandidatos";
+import verificarLogin from "./routes/verificarLogin";
 
 // Dotoenv
 import "dotenv/config";
@@ -49,6 +50,7 @@ app.use(deletraPostagem);
 app.use(postagemAtualizada);
 app.use(candidatura);
 app.use(carregarCandidato);
+app.use(verificarLogin);
 
 const porta = process.env.PORT || 3000;
 

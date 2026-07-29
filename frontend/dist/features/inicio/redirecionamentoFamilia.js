@@ -41,5 +41,5 @@ function voltar() {
     });
     formularioFamilia.style.display = 'none';
     formularioBaba.style.display = 'none';
-    linkDeCadastro.style.display = 'none';
+    linkDeCadastro.style.display = 'block';
 }

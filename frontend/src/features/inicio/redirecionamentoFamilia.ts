@@ -45,8 +45,6 @@ function mudarParaBaba() {
 }
 
 
-
-
 function voltar() {
 
     h1SejaBemVindo.style.display = 'block'
@@ -59,5 +57,5 @@ function voltar() {
     })
     formularioFamilia.style.display = 'none'
     formularioBaba.style.display = 'none'
-    linkDeCadastro.style.display = 'none'
+    linkDeCadastro.style.display = 'block'
 }
