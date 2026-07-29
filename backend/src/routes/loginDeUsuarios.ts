@@ -40,14 +40,14 @@ router.post("/loginUsuario", async (req: Request, res: Response) => {
             maxAge: 10* 60 * 1000, // 10 minutos
             httpOnly: true, //JavaScript não pode acessar esse cookie
             secure: false, // Quando for para producao deixar true!
-            sameSite: 'strict'  // Protege contra ataques CSRF
+            sameSite: 'lax'  // Protege contra ataques CSRF
         };
 
         const cookie2Config: CookieOptions = {
             maxAge: 7 * 24 * 60 * 60 * 1000, // 7 dias
             httpOnly: true, //JavaScript não pode acessar esse cookie
             secure: false, // Quando for para producao deixar true!
-            sameSite: 'strict' // Protege contra ataques CSRF
+            sameSite: 'lax' // Protege contra ataques CSRF
         }
 
         // Criando o Token

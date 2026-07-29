@@ -27,7 +27,13 @@ app.use(express.urlencoded({extended: true})); // Aqui ele esta lendo formulario
 app.use(cookieParser()); // Configura o middleware para ler cookies (req.cookies)
 
 // cors
-app.use(cors()); // Depois colocar só as URLS que serão permitidas
+app.use(cors({
+    origin: [
+        "http://127.0.0.1:5500",
+        "http://localhost:5500"
+    ],
+    credentials: true
+})); // Depois colocar só as URLS que serão permitidas
 
 // ######################################
 // conectando as rotas no servidor
