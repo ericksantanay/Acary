@@ -47,9 +47,8 @@ if (formFamilias) {
         ;
     });
 }
-;
-// Formulario Babas
-if (formBabas) {
+else {
+    // Formulario Babas
     formBabas.addEventListener("submit", (impedirFormBaba) => {
         impedirFormBaba.preventDefault();
         const emailBaba = document.getElementById('email-baba');
@@ -69,8 +68,8 @@ if (formBabas) {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    email: emailBaba,
-                    senha: senhaBaba
+                    email: emailBabaValue,
+                    senha: senhaBabaValue
                 })
             })
                 .then((res) => res.json())

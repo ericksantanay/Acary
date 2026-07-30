@@ -58,12 +58,10 @@ if (formFamilias) {
 
     });
 
-};
+}else {
+    // Formulario Babas
 
 
-// Formulario Babas
-
-if (formBabas) {
 
     formBabas.addEventListener("submit", (impedirFormBaba) => {
 
@@ -91,8 +89,8 @@ if (formBabas) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                email: emailBaba,
-                senha: senhaBaba
+                email: emailBabaValue,
+                senha: senhaBabaValue
             })
             })
             .then((res) => res.json())
@@ -117,3 +115,5 @@ if (formBabas) {
         };
     });
 };
+
+
