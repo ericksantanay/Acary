@@ -47,7 +47,7 @@ if (formFamilias) {
         ;
     });
 }
-else {
+if (formBabas) {
     // Formulario Babas
     formBabas.addEventListener("submit", (impedirFormBaba) => {
         impedirFormBaba.preventDefault();
@@ -92,4 +92,3 @@ else {
         ;
     });
 }
-;
