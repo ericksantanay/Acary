@@ -83,11 +83,10 @@ main {
     border-bottom-right-radius: 5px;
 }
 
-/*  */
+/* Parte dos cards de serviços */
 #secao-cards {
     margin-top: 40px;
 }
-
 
 #container-servicos {
     display: flex;
@@ -111,7 +110,6 @@ main {
     gap: 10px;
     margin-bottom: 15px;
 }
-
 
 /* Icones */
 .container-dados > img {

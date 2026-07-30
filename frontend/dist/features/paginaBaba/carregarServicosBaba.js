@@ -1,39 +1,33 @@
-const resultadoServicosCarregados = document.getElementById('container-postagens-feitas') as HTMLElement;
-
-const avisoNemUmaPostagem = document.querySelector('.container-aviso') as HTMLElement;
-
-function carregarPostagemPessoal() {
-
-    resultadoServicosCarregados.innerHTML = "";
-
-    const URLCarregarPostagem: string = "https://backend-acary.onrender.com";
-
-    fetch(`${URLCarregarPostagem}/meusServicos`, {
-        method: "GET",  
+"use strict";
+const avisoNemUmaPostagemBaba = document.querySelector('.container-aviso');
+const saidaDosServicosDisponiveisBabas = document.getElementById('container-servicos');
+function carregarServicoBaba() {
+    saidaDosServicosDisponiveisBabas.innerHTML = "";
+    const URLCarregarServicoBaba = "https://backend-acary.onrender.com";
+    fetch(`${URLCarregarServicoBaba}/carregarServicos`, {
+        method: "GET",
         credentials: "include",
         headers: {
             "Content-Type": "application/json"
         }
     })
-    .then((res) => res.json())
-    .then((dados) => {
-
+        .then((res) => res.json())
+        .then((dados) => {
         console.log(dados);
-
-        if (dados.mensagem === "Usuário não autenticado.") {
+        if (dados.mensagem === "Usuário não autenticado." || dados.mensagem === "Usuario não existe." || dados.mensagem === "Você não tem autorização!") {
             alert("Usuário não autenticado.");
             return window.location.replace("http://127.0.0.1:5500/frontend/index.html");
-        };
-
-        if (dados.mensagem === "Você não fez nem uma postagem.") {
-            avisoNemUmaPostagem.style.display = "block"
-        }else {
-            dados.forEach((item: any)  => {
-    
-                resultadoServicosCarregados.innerHTML += 
-                `
-
-                    <div class="postagem-feita" data-id="${item.id}">
+        }
+        ;
+        if (dados.mensagem === "Nem um serviço encontardo") {
+            avisoNemUmaPostagemBaba.style.display = "block";
+        }
+        else {
+            // Foreach
+            dados.forEach((item) => {
+                saidaDosServicosDisponiveisBabas.innerHTML +=
+                    `
+                    <div class="servicos-disponiveis" data-id="${item.id}">
 
                         <div class="container-dados">
                             <img src="../../assets/icones/pai-e-filho.png" alt="Icone Pai e filho">
@@ -66,21 +60,19 @@ function carregarPostagemPessoal() {
                         </div>
 
                         <article class="container-funcoes-basicas">
-                        <img src="../../assets/icones/lixeira.png" alt="Icone lixeira" onclick="excluir(${item.id})">
-                        <img src="../../assets/icones/editar.png" alt="Icone editar" onclick="editar(${item.id})">
-                    </article>
+                            <button id="btn-candidatar" type="button" onclick="seCandidatar(${item.id})">candidatar-se</button>
+                        </article>
 
-                    </div>
-
-                 `            
+                    </div> 
+                `;
             });
-        };
-
+        }
+        ;
     })
-    .catch((error) => {
+        .catch((error) => {
         console.log(error);
-        return alert ("Erro no servidor");
+        return alert("Erro no servidor");
     });
-
-};
-carregarPostagemPessoal()
+}
+;
+carregarServicoBaba();
