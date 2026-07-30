@@ -82,6 +82,3 @@ if (formularioPostagem) {
         };
     });
 };
-window.onload = function () {
-    carregarPostagemPessoal()
-}

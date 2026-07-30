@@ -1,8 +1,10 @@
 const resultadoServicosCarregados = document.getElementById('container-postagens-feitas') as HTMLElement;
 
+const avisoNemUmaPostagem = document.querySelector('.container-aviso') as HTMLElement;
+
 function carregarPostagemPessoal() {
 
-    resultadoServicosCarregados.innerHTML = ""
+    resultadoServicosCarregados.innerHTML = "";
 
     const URLCarregarPostagem: string = "https://backend-acary.onrender.com";
 
@@ -24,55 +26,57 @@ function carregarPostagemPessoal() {
         };
 
         if (dados.mensagem === "Você não fez nem uma postagem.") {
-            return alert("Você não fez nem uma postagem.");
+            avisoNemUmaPostagem.style.display = "block"
+        }else {
+            dados.forEach((item: any)  => {
+    
+                resultadoServicosCarregados.innerHTML += 
+                `
+
+                    <div class="postagem-feita" data-id="${item.id}">
+
+                        <div class="container-dados">
+                            <img src="../../assets/icones/pai-e-filho.png" alt="Icone Pai e filho">
+                            <p class="responsavel"><strong>Responsavel</strong>: ${item.responsavel}</p>
+                        </div>
+
+                        <div class="container-dados">
+                            <img src="../../assets/icones/local.png" alt="Icone de Local">
+                            <p class="cidade"><strong>Cidade</strong>: ${item.cidade}</p>
+                        </div>
+
+                        <div class="container-dados">
+                            <img src="../../assets/icones/contorno-da-cabeca-do-bebe-com-chupeta.png" alt="Icone crianças">
+                            <p class="criancas"><strong>Crianças</strong>: ${item.criancas}</p>
+                        </div>
+
+                        <div class="container-dados">
+                            <img src="../../assets/icones/cifrao.png" alt="Icone Cifrão">
+                            <p class="valor"><strong>Valor</strong>: R$${item.valor}</p>
+                        </div>
+
+                        <div class="container-dados">
+                            <img src="../../assets/icones/horarios.png" alt="Icone horarios">
+                            <p class="data-e-horario-inicio"><strong>Data&Horario (Inicio)</strong>: ${item.dataEhorarioInicio}</p>
+                        </div>
+
+                        <div class="container-dados">
+                            <img src="../../assets/icones/cronograma.png" alt="Icone cronograma">
+                            <p class="data-e-horario-final"><strong>Data&Horario (Final)</strong>: ${item.dataEhorarioTermino}</p>
+                        </div>
+
+                        <article class="container-funcoes-basicas">
+                        <img src="../../assets/icones/lixeira.png" alt="Icone lixeira" onclick="excluir(${item.id})">
+                        <img src="../../assets/icones/editar.png" alt="Icone editar" onclick="editar(${item.id})">
+                    </article>
+
+                    </div>
+
+                 `            
+            });
         };
 
-        dados.forEach((item: any)  => {
-    
-            resultadoServicosCarregados.innerHTML += 
-            `
-
-            <div class="postagem-feita" data-id="${item.id}">
-
-                    <div class="container-dados">
-                        <img src="../../assets/icones/pai-e-filho.png" alt="Icone Pai e filho">
-                        <p class="responsavel"><strong>Responsavel</strong>: ${item.responsavel}</p>
-                    </div>
-
-                    <div class="container-dados">
-                        <img src="../../assets/icones/local.png" alt="Icone de Local">
-                        <p class="cidade"><strong>Cidade</strong>: ${item.cidade}</p>
-                    </div>
-
-                    <div class="container-dados">
-                        <img src="../../assets/icones/contorno-da-cabeca-do-bebe-com-chupeta.png" alt="Icone crianças">
-                        <p class="criancas"><strong>Crianças</strong>: ${item.criancas}</p>
-                    </div>
-
-                    <div class="container-dados">
-                        <img src="../../assets/icones/cifrao.png" alt="Icone Cifrão">
-                        <p class="valor"><strong>Valor</strong>: R$${item.valor}</p>
-                    </div>
-
-                    <div class="container-dados">
-                        <img src="../../assets/icones/horarios.png" alt="Icone horarios">
-                        <p class="data-e-horario-inicio"><strong>Data&Horario (Inicio)</strong>: ${item.dataEhorarioInicio}</p>
-                    </div>
-
-                    <div class="container-dados">
-                        <img src="../../assets/icones/cronograma.png" alt="Icone cronograma">
-                        <p class="data-e-horario-final"><strong>Data&Horario (Final)</strong>: ${item.dataEhorarioTermino}</p>
-                    </div>
-
-                    <article class="container-funcoes-basicas">
-                    <img src="../../assets/icones/lixeira.png" alt="Icone lixeira" onclick="excluir(${item.id})">
-                    <img src="../../assets/icones/editar.png" alt="Icone editar" onclick="editar(${item.id})">
-                </article>
-
-                </div>
-
-            `            
-        });
+        
 
     })
     .catch((error) => {
