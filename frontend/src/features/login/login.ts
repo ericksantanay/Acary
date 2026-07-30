@@ -60,9 +60,6 @@ if (formFamilias) {
 
 }else {
     // Formulario Babas
-
-
-
     formBabas.addEventListener("submit", (impedirFormBaba) => {
 
         impedirFormBaba.preventDefault();
@@ -80,9 +77,9 @@ if (formFamilias) {
             };
 
 
-            const URLBaba: string = "https://backend-acary.onrender.com"; 
+            const URLBabaLogin: string = "https://backend-acary.onrender.com"; 
 
-            fetch(`${URLBaba}/loginUsuario`, {
+            fetch(`${URLBabaLogin}/loginUsuario`, {
             method: "POST",
             credentials: "include",
             headers: {
@@ -104,7 +101,7 @@ if (formFamilias) {
 
                 if (dados.mensagem === "Login efetuado com sucesso") {
                     alert("Login efetuado com sucesso")
-                    return location.replace("http://127.0.0.1:5500/frontend/src/features/paginaBaba/paginaBaba.html")
+                    return window.location.replace("http://127.0.0.1:5500/frontend/src/features/paginaBaba/paginaBaba.html")
                 }
 
             }).catch((error) => {
@@ -115,5 +112,3 @@ if (formFamilias) {
         };
     });
 };
-
-

@@ -60,8 +60,8 @@ else {
                 return alert("Preencha os campos corretamente");
             }
             ;
-            const URLBaba = "https://backend-acary.onrender.com";
-            fetch(`${URLBaba}/loginUsuario`, {
+            const URLBabaLogin = "https://backend-acary.onrender.com";
+            fetch(`${URLBabaLogin}/loginUsuario`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
@@ -81,7 +81,7 @@ else {
                 ;
                 if (dados.mensagem === "Login efetuado com sucesso") {
                     alert("Login efetuado com sucesso");
-                    return location.replace("http://127.0.0.1:5500/frontend/src/features/paginaBaba/paginaBaba.html");
+                    return window.location.replace("http://127.0.0.1:5500/frontend/src/features/paginaBaba/paginaBaba.html");
                 }
             }).catch((error) => {
                 console.log("Baba");
