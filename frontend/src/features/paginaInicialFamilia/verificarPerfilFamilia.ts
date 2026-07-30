@@ -14,10 +14,14 @@ function verificarPerfilFamilia() {
         
         console.log(dados);
 
-        if (dados.mensagem !== "Autorização concedida para o usuario familia.") {
+        if (dados.perfil !== "Família") {
             alert("Você não tem autorização");
             window.location.replace("http://127.0.0.1:5500/frontend/index.html");
         };
+    })
+    .catch((error) => {
+        console.log(error);
+        return alert("Erro no servidor");
     });
 
 };

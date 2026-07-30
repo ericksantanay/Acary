@@ -18,6 +18,7 @@ import postagemAtualizada from "./routes/atualizarPostagem";
 import candidatura from "./routes/candidatos";
 import carregarCandidato from "./routes/carregarCandidatos";
 import verificarLogin from "./routes/verificarLogin";
+import verificarPerfil from "./routes/verificarPerfil";
 
 // Dotoenv
 import "dotenv/config";
@@ -51,9 +52,10 @@ app.use(postagemAtualizada);
 app.use(candidatura);
 app.use(carregarCandidato);
 app.use(verificarLogin);
+app.use(verificarPerfil);
 
 const porta = process.env.PORT || 3000;
 
 app.listen(porta, () => {
     console.log(`Servidor Rodando na porta ${porta}`)
-})
+});

@@ -25,13 +25,13 @@ router.get("/verificarPerfil", verificarToken, async (req: RequestUserId, res: R
 
     // #######################################
     if (usuarioPerfil.perfil === "Família") {
-        return res.status(200).json({mensagem: "Autorização concedida para o usuario familia."});
+        return res.status(200).json({perfil: usuarioPerfil.perfil});
 
     }else if (usuarioPerfil.perfil === "Babá") {
-            return res.status(200).json({mensagem: "Autorização concedida para o usuario baba."});
+            return res.status(200).json({perfil: usuarioPerfil.perfil});
 
     }else {
-        return res.status(401).json({mensagem: "Você não tem autorização"});
+        return res.status(403).json({mensagem: "Você não tem autorização"});
     };
 });
 
