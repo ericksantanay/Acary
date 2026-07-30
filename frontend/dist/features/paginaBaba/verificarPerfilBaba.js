@@ -1,7 +1,7 @@
 "use strict";
 function verificarPerfilBaba() {
-    const URLPerfilBaba = "https://backend-acary.onrender.com";
-    fetch(`${URLPerfilBaba}/verificarLogin`, {
+    const URLverificarLoginBaba = "https://backend-acary.onrender.com";
+    fetch(`${URLverificarLoginBaba}/verificarPerfil`, {
         method: "GET",
         credentials: "include",
         headers: {
@@ -13,7 +13,7 @@ function verificarPerfilBaba() {
         console.log(dados);
         if (dados.mensagem !== "Autorização concedida para o usuario baba.") {
             alert("Você não tem autorização");
-            return window.location.replace("http://127.0.0.1:5500/frontend/index.html");
+            window.location.replace("http://127.0.0.1:5500/frontend/index.html");
         }
         ;
     });

@@ -2,7 +2,7 @@ function verificarPerfilFamilia() {
 
     const URLPerfilFamilia: string = "https://backend-acary.onrender.com";
 
-    fetch(`${URLPerfilFamilia}/verificarLogin`, {
+    fetch(`${URLPerfilFamilia}/verificarPerfil`, {
         method: "GET",
         credentials: "include",
         headers: {
@@ -16,7 +16,7 @@ function verificarPerfilFamilia() {
 
         if (dados.mensagem !== "Autorização concedida para o usuario familia.") {
             alert("Você não tem autorização");
-            window.location.replace("http://127.0.0.1:5500/frontend/index.html")
+            window.location.replace("http://127.0.0.1:5500/frontend/index.html");
         };
     });
 

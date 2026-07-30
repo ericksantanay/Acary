@@ -1,7 +1,7 @@
 "use strict";
 function verificarPerfilFamilia() {
     const URLPerfilFamilia = "https://backend-acary.onrender.com";
-    fetch(`${URLPerfilFamilia}/verificarLogin`, {
+    fetch(`${URLPerfilFamilia}/verificarPerfil`, {
         method: "GET",
         credentials: "include",
         headers: {
