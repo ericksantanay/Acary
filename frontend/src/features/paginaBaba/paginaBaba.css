@@ -82,3 +82,58 @@ main {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+/*  */
+#secao-cards {
+    margin-top: 40px;
+}
+
+
+#container-servicos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Card */
+.servicos-disponiveis {
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid var(--azul);
+}
+
+/* card */
+.container-dados {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+
+/* Icones */
+.container-dados > img {
+    width: 30px;
+}
+
+/* Container itens de editra e deletar */
+.container-funcoes-basicas {
+    margin: 0 auto;
+    width: max-content;
+    padding: 5px;
+    border-radius: 40px;
+    display: flex;
+    gap: 30px;
+    margin-bottom: 5px;
+}
+
+#btn-candidatar {
+    border: none;
+    font-weight: bold;
+    color: var(--branco);
+    background-color: var(--azul);
+    padding: 8px 30px;
+    border-radius: 30px;
+}

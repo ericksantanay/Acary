@@ -14,7 +14,7 @@ router.get("/carregarServicos", verificarToken, async (req: RequestUserId, res: 
     try {
 
       if (!req.userId) {
-        return res.status(401).json({ mensagem: "Usuário não autenticado." });
+        return res.status(401).json({ mensagem: "Usuário não autenticado."});
       };
 
       const usuario = await prisma.usuario.findUnique({
@@ -28,7 +28,7 @@ router.get("/carregarServicos", verificarToken, async (req: RequestUserId, res: 
       };
 
       if (usuario.perfil !==  "Babá") {
-        return res.status(401).json({mensagem: "Voçê não tem autorização!"});
+        return res.status(401).json({mensagem: "Você não tem autorização!"});
       };
 
       const servicosDisponiveis = await prisma.postagemFamilia.findMany();
