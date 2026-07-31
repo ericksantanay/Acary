@@ -19,6 +19,7 @@ import candidatura from "./routes/candidatos";
 import carregarCandidato from "./routes/carregarCandidatos";
 import verificarLogin from "./routes/verificarLogin";
 import verificarPerfil from "./routes/verificarPerfil";
+import mostrarDadosNoPerfil from "./routes/mostrarDadosDoPerfil";
 
 // Dotoenv
 import "dotenv/config";
@@ -53,6 +54,7 @@ app.use(candidatura);
 app.use(carregarCandidato);
 app.use(verificarLogin);
 app.use(verificarPerfil);
+app.use(mostrarDadosNoPerfil);
 
 const porta = process.env.PORT || 3000;
 
