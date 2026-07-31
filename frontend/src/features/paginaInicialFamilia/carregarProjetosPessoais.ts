@@ -67,7 +67,6 @@ function carregarPostagemPessoal() {
 
                         <article class="container-funcoes-basicas">
                         <img src="../../assets/icones/lixeira.png" alt="Icone lixeira" onclick="excluir('${item.id}')">
-                        <img src="../../assets/icones/editar.png" alt="Icone editar" onclick="editar('${item.id}')">
                     </article>
 
                     </div>
