@@ -72,7 +72,8 @@ if (formularioPostagem) {
                     };
 
                     if (dados.mensagem === "Serviço criado com sucesso.") {
-                        return alert("Serviço criado com sucesso.");
+                        alert("Serviço criado com sucesso.");
+                        return location.reload();
                     };
                 })
 

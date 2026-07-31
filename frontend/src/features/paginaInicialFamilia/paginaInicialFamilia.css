@@ -147,6 +147,7 @@ main {
 .container-funcoes-basicas > img {
     width: 25px;
     margin: 0 auto;  
+    cursor: pointer;    
 }
 
 /* ################################### */
