@@ -23,7 +23,7 @@ router.get("/carregarServicos", auth_1.verificarToken, async (req, res) => {
         }
         ;
         if (usuario.perfil !== "Babá") {
-            return res.status(401).json({ mensagem: "Voçê não tem autorização!" });
+            return res.status(401).json({ mensagem: "Você não tem autorização!" });
         }
         ;
         const servicosDisponiveis = await prisma_1.default.postagemFamilia.findMany();

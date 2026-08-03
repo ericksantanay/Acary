@@ -43,11 +43,11 @@ router.post ("/candidatar/:id", verificarToken, async (req: RequestUserId, res: 
         });
 
         if (baba.perfil !== "Babá") {
-            return res.status(401).json({mensagem: "Voçê não é uma babá"});
+            return res.status(401).json({mensagem: "Você não é uma babá"});
         };
 
         if (candidatosLista) {
-            return res.status(400).json({mensagem: "Voçê já se candidatou!"});
+            return res.status(400).json({mensagem: "Você já se candidatou!"});
         };
 
 
@@ -58,7 +58,7 @@ router.post ("/candidatar/:id", verificarToken, async (req: RequestUserId, res: 
             }
         });
 
-        return res.status(201).json({mensagem: "Candidatura feita com sucesso", candidatura});
+        return res.status(201).json({mensagem: "Candidatura feita com sucesso", candidatura: candidatura});
         
     } catch (error) {
         return res.status(500).json({mensagem: "Erro no servidor."});

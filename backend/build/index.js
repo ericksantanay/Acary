@@ -20,6 +20,9 @@ const deletarPostagem_1 = __importDefault(require("./routes/deletarPostagem"));
 const atualizarPostagem_1 = __importDefault(require("./routes/atualizarPostagem"));
 const candidatos_1 = __importDefault(require("./routes/candidatos"));
 const carregarCandidatos_1 = __importDefault(require("./routes/carregarCandidatos"));
+const verificarLogin_1 = __importDefault(require("./routes/verificarLogin"));
+const verificarPerfil_1 = __importDefault(require("./routes/verificarPerfil"));
+const mostrarDadosDoPerfil_1 = __importDefault(require("./routes/mostrarDadosDoPerfil"));
 // Dotoenv
 require("dotenv/config");
 // ######################################
@@ -27,7 +30,13 @@ app.use(express_1.default.json()); // Serve pra ler JSON do req.body
 app.use(express_1.default.urlencoded({ extended: true })); // Aqui ele esta lendo formularios
 app.use((0, cookie_parser_1.default)()); // Configura o middleware para ler cookies (req.cookies)
 // cors
-app.use((0, cors_1.default)()); // Depois colocar só as URLS que serão permitidas
+app.use((0, cors_1.default)({
+    origin: [
+        "http://127.0.0.1:5500",
+        "http://localhost:5500"
+    ],
+    credentials: true
+})); // Depois colocar só as URLS que serão permitidas
 // ######################################
 // conectando as rotas no servidor
 app.use(cadastroDeUsuario_1.default);
@@ -41,6 +50,9 @@ app.use(deletarPostagem_1.default);
 app.use(atualizarPostagem_1.default);
 app.use(candidatos_1.default);
 app.use(carregarCandidatos_1.default);
+app.use(verificarLogin_1.default);
+app.use(verificarPerfil_1.default);
+app.use(mostrarDadosDoPerfil_1.default);
 const porta = process.env.PORT || 3000;
 app.listen(porta, () => {
     console.log(`Servidor Rodando na porta ${porta}`);

@@ -29,7 +29,7 @@ router.get("/meusServicos", auth_1.verificarToken, async (req, res) => {
             }
         });
         if (meusServicos.length === 0) {
-            return res.status(404).json({ mensagem: "Voçê não fez nem uma postagem." });
+            return res.status(404).json({ mensagem: "Você não fez nem uma postagem." });
         }
         ;
         const meusServicosatualizadoComOValor = meusServicos.map((el) => {

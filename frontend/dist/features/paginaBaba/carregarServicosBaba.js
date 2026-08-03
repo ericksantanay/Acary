@@ -60,7 +60,7 @@ function carregarServicoBaba() {
                         </div>
 
                         <article class="container-funcoes-basicas">
-                            <button id="btn-candidatar" type="button" onclick="seCandidatar(${item.id})">candidatar-se</button>
+                            <button id="btn-candidatar" type="button" onclick="candidatar('${item.id}')">candidatar-se</button>
                         </article>
 
                     </div> 

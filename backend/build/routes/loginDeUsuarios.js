@@ -23,26 +23,26 @@ router.post("/loginUsuario", async (req, res) => {
         });
         // Validação se o usuario existe
         if (!user) {
-            return res.status(404).json({ mensagem: "Usuário ou senha incorretos" });
+            return res.status(401).json({ mensagem: "Usuário ou senha incorretos" });
         }
         ;
         const password = await bcrypt_1.default.compare(senha, user.senha);
         // Verificando se a senha esta correta;
         if (!password) {
-            return res.status(404).json({ mensagem: "Usuário ou senha incorretos" });
+            return res.status(401).json({ mensagem: "Usuário ou senha incorretos" });
         }
         // Opções dos cookie
         const cookie1Config = {
-            maxAge: 10 * 60 * 1000, // 10 minutos
-            httpOnly: true, //JavaScript não pode acessar esse cookie
-            secure: false, // Quando for para producao deixar true!
-            sameSite: 'strict' // Protege contra ataques CSRF
+            httpOnly: true, // 10 minutos
+            secure: true, //JavaScript não pode acessar esse cookie
+            sameSite: "none", // Quando for para producao deixar true!
+            maxAge: 10 * 60 * 1000 // Protege contra ataques CSRF
         };
         const cookie2Config = {
             maxAge: 7 * 24 * 60 * 60 * 1000, // 7 dias
             httpOnly: true, //JavaScript não pode acessar esse cookie
-            secure: false, // Quando for para producao deixar true!
-            sameSite: 'strict' // Protege contra ataques CSRF
+            secure: true, // Quando for para producao deixar true!
+            sameSite: 'none' // Protege contra ataques CSRF
         };
         // Criando o Token
         const token = jsonwebtoken_1.default.sign({ id: user.id }, process.env.JWT_SECRET ?? "", { expiresIn: "10m" });

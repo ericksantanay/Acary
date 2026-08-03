@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const prisma_1 = __importDefault(require("../lib/prisma"));
+// Depois fazer a rota ser privada!;
 const router = (0, express_1.Router)();
 router.get("/pesquisa", async (req, res) => {
     try {

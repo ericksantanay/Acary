@@ -35,11 +35,11 @@ router.post("/candidatar/:id", auth_1.verificarToken, async (req, res) => {
             }
         });
         if (baba.perfil !== "Babá") {
-            return res.status(401).json({ mensagem: "Voçê não é uma babá" });
+            return res.status(401).json({ mensagem: "Você não é uma babá" });
         }
         ;
         if (candidatosLista) {
-            return res.status(400).json({ mensagem: "Voçê já se candidatou!" });
+            return res.status(400).json({ mensagem: "Você já se candidatou!" });
         }
         ;
         const candidatura = await prisma_1.default.candidatura.create({
@@ -48,7 +48,7 @@ router.post("/candidatar/:id", auth_1.verificarToken, async (req, res) => {
                 postagemId: postagem.id
             }
         });
-        return res.status(201).json({ mensagem: "Candidatura feita com sucesso", candidatura });
+        return res.status(201).json({ mensagem: "Candidatura feita com sucesso", candidatura: candidatura });
     }
     catch (error) {
         return res.status(500).json({ mensagem: "Erro no servidor." });
