@@ -86,6 +86,28 @@ main {
     width: 35px;
 }
 
+/* Container candidatos */
+#container-candidatos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #004bad;
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--branco);
+    font-weight: bold;
+    gap: 30px;
+    position: fixed;
+    left: 60%;
+    top: 23%;
+}
+
+.candidatos {
+    text-align: center;
+    font-size: 20px;
+}
+
+
 #quantidade-de-propostas {
     font-size: 20px;
     font-weight: bold;

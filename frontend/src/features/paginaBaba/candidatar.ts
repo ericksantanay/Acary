@@ -1,63 +1,68 @@
-function candidatar(id: any) {
+function candidatar(id: string) {
 
-    const URLAcary: string = "https://backend-acary.onrender.com";
-    
-    // Fetc do refresh token
-    fetch(`${URLAcary}/refreshToken`, {
+    const URL = "https://backend-acary.onrender.com";
+
+    // 1º - Tenta renovar o access token
+    fetch(`${URL}/refreshToken`, {
         method: "POST",
-        credentials: "include",
+        credentials: "include"
     })
     .then((res) => res.json())
-    .then((dados) => {
-        
-        console.log(dados);
+    .then((dadosRefresh) => {
 
-        if (dados.mensagem === "Acesso negado. Token não fornecido.") {
-            return alert("Acesso negado. Token não fornecido.");
-        };
-    });
+        console.log(dadosRefresh);
 
+        if (dadosRefresh.mensagem === "Acesso negado. Token não fornecido.") {
+            alert("Você precisa fazer login.");
+            return;
+        }
 
-    const URLCandidatos: string = "https://backend-acary.onrender.com";
+        // 2º - Somente depois do refresh terminar,
+        // faz a candidatura.
+        return fetch(`${URL}/candidatar/${id}`, {
+            method: "POST",
+            credentials: "include"
+        });
 
-    fetch(`${URLCandidatos}/candidatar/${id}`, {
-        method: "POST",
-        credentials: "include",
-        headers: {
-            "Content-Type": "application/json"
-        }, 
-        body: JSON.stringify({
-            id: id
-        })
     })
-    .then((res) => res.json())
+    .then((res) => {
+
+        // Se o refresh falhou, o res será undefined.
+        if (!res) return;
+
+        return res.json();
+
+    })
     .then((dadosCandidatura) => {
 
+        if (!dadosCandidatura) return;
+
         console.log(dadosCandidatura);
-        
+
         if (dadosCandidatura.mensagem === "Essa postagem não existe.") {
             return alert("Essa postagem não existe.");
-        };
+        }
 
         if (dadosCandidatura.mensagem === "Essa babá não existe.") {
             return alert("Essa babá não existe.");
-        };
+        }
 
         if (dadosCandidatura.mensagem === "Você não é uma babá") {
-            return alert("Você não é uma babá");
-        };
+            return alert("Você não é uma babá.");
+        }
 
         if (dadosCandidatura.mensagem === "Você já se candidatou!") {
             return alert("Você já se candidatou!");
-        };
+        }
 
-        if(dadosCandidatura.mensagem === "Candidatura feita com sucesso") {
-            return alert("Candidatura feita com sucesso");
-        };
+        if (dadosCandidatura.mensagem === "Candidatura feita com sucesso") {
+            return alert("Candidatura feita com sucesso.");
+        }
+
     })
     .catch((error) => {
         console.log(error);
-        return alert("Erro no servidor");
+        alert("Erro no servidor.");
     });
 
 };
