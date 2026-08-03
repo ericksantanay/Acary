@@ -26,24 +26,27 @@ function candidatar(id) {
         })
     })
         .then((res) => res.json())
-        .then((dados) => {
-        console.log(dados);
-        if (dados.mensagem === "Essa postagem não existe.") {
+        .then((dadosCandidatura) => {
+        console.log(dadosCandidatura);
+        if (dadosCandidatura.mensagem === "Essa postagem não existe.") {
             return alert("Essa postagem não existe.");
         }
         ;
-        if (dados.mensagem === "Essa babá não existe.") {
+        if (dadosCandidatura.mensagem === "Essa babá não existe.") {
             return alert("Essa babá não existe.");
         }
         ;
-        if (dados.mensagem === "Você não é uma babá") {
+        if (dadosCandidatura.mensagem === "Você não é uma babá") {
             return alert("Você não é uma babá");
         }
         ;
-        if (dados.mensagem === "Você já se candidatou!")
-            if (dados.mensagem === "Candidatura feita com sucesso") {
-                return alert("Candidatura feita com sucesso");
-            }
+        if (dadosCandidatura.mensagem === "Você já se candidatou!") {
+            return alert("Você já se candidatou!");
+        }
+        ;
+        if (dadosCandidatura.mensagem === "Candidatura feita com sucesso") {
+            return alert("Candidatura feita com sucesso");
+        }
         ;
     })
         .catch((error) => {
