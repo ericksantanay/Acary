@@ -12,6 +12,7 @@ nav {
 
 /* Icone de hamburuguer */
 #menu-burguer {
+    cursor: pointer;
    font-size: 35px;
 }
 
@@ -23,6 +24,7 @@ nav {
 /* Icone do usuario */
 #container-icone-usuario  > img {
     width: 35px;
+    cursor: pointer;
 }
 
 #container-conteudo-mobile {
@@ -84,6 +86,7 @@ main {
     justify-content: center;
     align-items: center;
     padding: 5px;
+    margin-bottom: 30px;
 }
 
 /* Input barra de pesquisa */
@@ -103,6 +106,14 @@ main {
     padding: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+
+/* Resultado da pesquisa */
+#resultado-da-pesquisa {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 /* Parte dos cards de serviços */
@@ -156,4 +167,5 @@ main {
     background-color: var(--azul);
     padding: 8px 30px;
     border-radius: 30px;
+    cursor: pointer;
 }

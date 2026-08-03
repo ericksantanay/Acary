@@ -1,36 +1,85 @@
-import { Router } from "express";
-import prisma from "../lib/prisma";
-import { Request, Response } from "express";
+const saidaBarraDePesquisa = document.getElementById("resultado-da-pesquisa") as HTMLElement;
+const titulo = document.getElementById("resultado-da-pesquisa-titulo") as HTMLElement;
 
-const router = Router();
+function pesquisar() {
 
-router.get("/pesquisa", async (req: Request, res: Response) => {
-    
-    try {
-        const {cidade} = req.query;
+    saidaBarraDePesquisa.innerHTML = "";
 
-        if (!cidade) {
-            return res.status(404).json({mensagem:"Cidade não encontrada"});
-        };
+    const barraDePesquisa = document.getElementById("barra-pesquisa");
 
-        const buscaUsuarioBaba = await prisma.postagemFamilia.findMany({
-            where:{
-                cidade:{
-                    contains: cidade as string
-                }
-            }
+    if (!(barraDePesquisa instanceof HTMLInputElement)) return;
+
+    const barraDePesquisaValor = barraDePesquisa.value.trim();
+
+    const URLBarraDePesquisa = "https://backend-acary.onrender.com";
+
+    fetch(`${URLBarraDePesquisa}/pesquisa?cidade=${encodeURIComponent(barraDePesquisaValor)}`, {
+        method: "GET"
+    })
+    .then(async (res) => {
+
+        const dados = await res.json();
+
+        console.log(dados);
+
+        if (!res.ok) {
+            alert(dados.mensagem);
+            titulo.style.display = "none";
+            return;
+        }
+
+        titulo.style.display = "block";
+        saidaBarraDePesquisa.innerHTML = "";
+
+        dados.forEach((item: any) => {
+
+            saidaBarraDePesquisa.innerHTML += `
+                <div class="servicos-disponiveis" data-id="${item.id}">
+
+                    <div class="container-dados">
+                        <img src="../../assets/icones/pai-e-filho.png" alt="Icone Pai e filho">
+                        <p class="responsavel"><strong>Responsavel</strong>: ${item.responsavel}</p>
+                    </div>
+
+                    <div class="container-dados">
+                        <img src="../../assets/icones/local.png" alt="Icone de Local">
+                        <p class="cidade"><strong>Cidade</strong>: ${item.cidade}</p>
+                    </div>
+
+                    <div class="container-dados">
+                        <img src="../../assets/icones/contorno-da-cabeca-do-bebe-com-chupeta.png" alt="Icone crianças">
+                        <p class="criancas"><strong>Crianças</strong>: ${item.criancas}</p>
+                    </div>
+
+                    <div class="container-dados">
+                        <img src="../../assets/icones/cifrao.png" alt="Icone Cifrão">
+                        <p class="valor"><strong>Valor</strong>: R$${item.valor}</p>
+                    </div>
+
+                    <div class="container-dados">
+                        <img src="../../assets/icones/horarios.png" alt="Icone horarios">
+                        <p class="data-e-horario-inicio"><strong>Data&Horario (Inicio)</strong>: ${item.dataEhorarioInicio}</p>
+                    </div>
+
+                    <div class="container-dados">
+                        <img src="../../assets/icones/cronograma.png" alt="Icone cronograma">
+                        <p class="data-e-horario-final"><strong>Data&Horario (Final)</strong>: ${item.dataEhorarioTermino}</p>
+                    </div>
+
+                    <article class="container-funcoes-basicas">
+                        <button type="button" id="btn-candidatar" onclick="seCandidatar('${item.id}')">
+                            Candidatar-se
+                        </button>
+                    </article>
+
+                </div>
+            `;
         });
 
-        if (buscaUsuarioBaba.length === 0) {
-            return res.status(404).json({mensagem: "Cidade não encontrada"});
-        };
+    })
+    .catch((error) => {
+        console.log(error);
+        alert("Erro no servidor");
+    });
 
-        return res.status(200).json(buscaUsuarioBaba);
-
-    } catch (error) {
-        return res.status(500).json({mensagem: "Erro no servidor"});
-    };
-    
-})
-
-export default router;
+}
