@@ -39,6 +39,8 @@ router.post("/refreshToken", (req: Request, res: Response) => {
         // Criando um Novo access token!
         res.cookie('acess_token', token, cookie1Config);
 
+        console.log("Novo access token criado");
+
         // Retornando sucesso!
         return res.status(200).json({mensagem: "Refresh feito com sucesso"})
         

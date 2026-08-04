@@ -1,5 +1,5 @@
 "use strict";
-const saidaCandidatos = document.getElementById('container-candidatos');
+const saidaCandidatos = document.getElementById("container-candidatos");
 function carregarCandidaturas(id) {
     saidaCandidatos.innerHTML = "";
     const URLCandidatos = "https://backend-acary.onrender.com";
@@ -16,26 +16,24 @@ function carregarCandidaturas(id) {
         if (dadosCarregarCandidatos.mensagem === "Usuário não autenticado.") {
             return alert("Usuário não autenticado.");
         }
-        ;
         if (dadosCarregarCandidatos.mensagem === "Postagem não encontrada ou não pertence ao usuário.") {
             return alert("Postagem não encontrada ou não pertence ao usuário.");
         }
-        ;
         if (dadosCarregarCandidatos.mensagem === "Nenhuma candidatura encontrada.") {
             return alert("Nenhuma candidatura encontrada.");
         }
-        ;
         dadosCarregarCandidatos.forEach((item) => {
-            saidaCandidatos.innerHTML +=
-                `
-                <div class="candidatos">
+            saidaCandidatos.innerHTML += `
+                <div class="candidatos" data-id="${item.id}">
                     <img src="../../assets/icones/mulher.png" alt="Foto de uma mulher">
-                    <p class="nome-dandidato">${item.nome}</p>
+                    <p class="nome-candidato">${item.nome}</p>
                 </div>
-
             `;
         });
+    })
+        .catch((error) => {
+        console.log(error);
+        alert("Erro no servidor.");
     });
 }
 ;
-carregarCandidaturas();
