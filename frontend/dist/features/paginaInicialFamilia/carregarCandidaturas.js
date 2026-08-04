@@ -1,9 +1,9 @@
-"use strict";
+import { fetchComRefresh } from "../../global/ts/fetchComRefresh";
 const saidaCandidatos = document.getElementById("container-candidatos");
-function carregarCandidaturas(id) {
+export function carregarCandidaturas(id) {
     saidaCandidatos.innerHTML = "";
     const URLCandidatos = "https://backend-acary.onrender.com";
-    fetch(`${URLCandidatos}/carregarCandidatura/${id}`, {
+    fetchComRefresh(`${URLCandidatos}/carregarCandidatura/${id}`, {
         method: "GET",
         credentials: "include",
         headers: {

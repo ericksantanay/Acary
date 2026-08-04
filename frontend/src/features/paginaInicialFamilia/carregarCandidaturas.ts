@@ -1,12 +1,14 @@
+import { fetchComRefresh } from "../../global/ts/fetchComRefresh";
+
 const saidaCandidatos = document.getElementById("container-candidatos") as HTMLElement;
 
-function carregarCandidaturas(id: string) {
+export function carregarCandidaturas(id: string)  {
 
     saidaCandidatos.innerHTML = "";
 
     const URLCandidatos = "https://backend-acary.onrender.com";
 
-    fetch(`${URLCandidatos}/carregarCandidatura/${id}`, {
+    fetchComRefresh(`${URLCandidatos}/carregarCandidatura/${id}`, {
         method: "GET",
         credentials: "include",
         headers: {
