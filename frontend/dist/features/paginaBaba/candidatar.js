@@ -1,7 +1,7 @@
 "use strict";
 function candidatar(id) {
     const URL = "https://backend-acary.onrender.com";
-    // 1º - Tenta renovar o access token
+    // Primeiro faz o refresh
     fetch(`${URL}/refreshToken`, {
         method: "POST",
         credentials: "include"
@@ -13,15 +13,19 @@ function candidatar(id) {
             alert("Você precisa fazer login.");
             return;
         }
-        // 2º - Somente depois do refresh terminar,
-        // faz a candidatura.
+        // Só executa depois que o refresh terminou
         return fetch(`${URL}/candidatar/${id}`, {
             method: "POST",
-            credentials: "include"
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id: id
+            })
         });
     })
         .then((res) => {
-        // Se o refresh falhou, o res será undefined.
         if (!res)
             return;
         return res.json();
@@ -37,18 +41,17 @@ function candidatar(id) {
             return alert("Essa babá não existe.");
         }
         if (dadosCandidatura.mensagem === "Você não é uma babá") {
-            return alert("Você não é uma babá.");
+            return alert("Você não é uma babá");
         }
         if (dadosCandidatura.mensagem === "Você já se candidatou!") {
             return alert("Você já se candidatou!");
         }
         if (dadosCandidatura.mensagem === "Candidatura feita com sucesso") {
-            return alert("Candidatura feita com sucesso.");
+            return alert("Candidatura feita com sucesso");
         }
     })
         .catch((error) => {
         console.log(error);
-        alert("Erro no servidor.");
+        alert("Erro no servidor");
     });
 }
-;
