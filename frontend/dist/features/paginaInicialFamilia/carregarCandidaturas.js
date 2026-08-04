@@ -5,7 +5,6 @@ export function carregarCandidaturas(id) {
     const URLCandidatos = "https://backend-acary.onrender.com";
     fetchComRefresh(`${URLCandidatos}/carregarCandidatura/${id}`, {
         method: "GET",
-        credentials: "include",
         headers: {
             "Content-Type": "application/json"
         }
@@ -13,21 +12,23 @@ export function carregarCandidaturas(id) {
         .then((res) => res.json())
         .then((dadosCarregarCandidatos) => {
         console.log(dadosCarregarCandidatos);
-        if (dadosCarregarCandidatos.mensagem === "Usuário não autenticado.") {
-            return alert("Usuário não autenticado.");
-        }
-        if (dadosCarregarCandidatos.mensagem === "Postagem não encontrada ou não pertence ao usuário.") {
-            return alert("Postagem não encontrada ou não pertence ao usuário.");
-        }
-        if (dadosCarregarCandidatos.mensagem === "Nenhuma candidatura encontrada.") {
-            return alert("Nenhuma candidatura encontrada.");
+        if (dadosCarregarCandidatos.mensagem) {
+            alert(dadosCarregarCandidatos.mensagem);
+            return;
         }
         dadosCarregarCandidatos.forEach((item) => {
             saidaCandidatos.innerHTML += `
+
                 <div class="candidatos" data-id="${item.id}">
-                    <img src="../../assets/icones/mulher.png" alt="Foto de uma mulher">
-                    <p class="nome-candidato">${item.nome}</p>
+
+                    <img src="../../assets/icones/mulher.png">
+
+                    <p class="nome-candidato">
+                        ${item.nome}
+                    </p>
+
                 </div>
+
             `;
         });
     })
@@ -36,4 +37,5 @@ export function carregarCandidaturas(id) {
         alert("Erro no servidor.");
     });
 }
-;
+// deixa disponível para o HTML
+window.carregarCandidaturas = carregarCandidaturas;
