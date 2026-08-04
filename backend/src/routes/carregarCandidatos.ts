@@ -53,6 +53,9 @@ router.get("/carregarCandidatura/:id", verificarToken, async (req: RequestUserId
         return res.status(200).json(listagem);
 
     } catch (error) {
+        
+        console.log(error);
+
         return res.status(500).json({
             mensagem: "Erro no servidor."
         });

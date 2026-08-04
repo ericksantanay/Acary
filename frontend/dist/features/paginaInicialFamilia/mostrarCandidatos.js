@@ -9,16 +9,19 @@ function mostrarCandidatos(id) {
         .then((res) => res.json())
         .then((dadosRefresh) => {
         console.log(dadosRefresh);
-        if (dadosRefresh.mensagem === "Acesso negado. Token não fornecido.") {
-            return alert("Acesso negado. Token não fornecido.");
+        // Se o refresh falhou
+        if (dadosRefresh.mensagem !== "Refresh feito com sucesso") {
+            alert("Sessão expirada.");
+            return window.location.replace("http://127.0.0.1:5500/frontend/index.html");
         }
+        // Abre ou fecha a aba
         if (containerCandidatos.style.display === "none" || containerCandidatos.style.display === "") {
             containerCandidatos.style.display = "block";
         }
         else {
             containerCandidatos.style.display = "none";
         }
-        // Chama somente depois que o refresh terminar
+        // Agora sim carrega os candidatos
         carregarCandidaturas(id);
     })
         .catch((error) => {

@@ -11,6 +11,7 @@ interface RequestUserId extends Request {
 
 router.post ("/candidatar/:id", verificarToken, async (req: RequestUserId, res: Response) => {
 
+     console.log("CHEGOU NA ROTA");
     const idPostagem = req.params.id as string;
 
     try {
