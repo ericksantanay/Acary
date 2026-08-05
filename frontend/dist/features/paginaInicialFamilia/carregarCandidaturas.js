@@ -1,41 +1,60 @@
-import { fetchComRefresh } from "../../global/ts/fetchComRefresh";
-const saidaCandidatos = document.getElementById("container-candidatos");
-export function carregarCandidaturas(id) {
-    saidaCandidatos.innerHTML = "";
-    const URLCandidatos = "https://backend-acary.onrender.com";
-    fetchComRefresh(`${URLCandidatos}/carregarCandidatura/${id}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-        .then((res) => res.json())
-        .then((dadosCarregarCandidatos) => {
-        console.log(dadosCarregarCandidatos);
-        if (dadosCarregarCandidatos.mensagem) {
-            alert(dadosCarregarCandidatos.mensagem);
+"use strict";
+const containerCandidatos = document.getElementById("container-candidatos");
+async function carregarCandidatura(id) {
+    containerCandidatos.innerHTML = "<p>Carregando candidatos...</p>";
+    const URLcarregarCandidatos = "https://backend-acary.onrender.com";
+    try {
+        const resposta = await fetch(`${URLcarregarCandidatos}/carregarCandidatura/${id}`, {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        const dados = await resposta.json();
+        console.log("Candidatos:", dados);
+        if (!resposta.ok) {
+            if (dados.mensagem === "Nenhuma candidatura encontrada.") {
+                containerCandidatos.innerHTML = `
+                    <p>Nenhum candidato encontrado.</p>
+                `;
+                return;
+            }
+            alert(dados.mensagem);
             return;
         }
-        dadosCarregarCandidatos.forEach((item) => {
-            saidaCandidatos.innerHTML += `
+        containerCandidatos.innerHTML = "";
+        dados.forEach((item) => {
+            containerCandidatos.innerHTML += `
 
-                <div class="candidatos" data-id="${item.id}">
+                <div class="candidatos">
 
-                    <img src="../../assets/icones/mulher.png">
+                    <img 
+                        src="../../assets/icones/mulher.png"
+                        alt="Foto da babá"
+                    >
 
-                    <p class="nome-candidato">
-                        ${item.nome}
-                    </p>
+                    <div>
+
+                        <p class="nome-candidato">
+                            ${item.usuario.nome}
+                        </p>
+
+                        <button>
+                            Ver perfil
+                        </button>
+
+                    </div>
 
                 </div>
 
             `;
         });
-    })
-        .catch((error) => {
+    }
+    catch (error) {
         console.log(error);
-        alert("Erro no servidor.");
-    });
+        containerCandidatos.innerHTML = `
+            <p>Erro ao carregar candidatos.</p>
+        `;
+    }
 }
-// deixa disponível para o HTML
-window.carregarCandidaturas = carregarCandidaturas;

@@ -1,51 +1,80 @@
-import { fetchComRefresh } from "../../global/ts/fetchComRefresh";
-
-const saidaCandidatos = document.getElementById("container-candidatos") as HTMLElement;
+const containerCandidatos = document.getElementById("container-candidatos") as HTMLElement;
 
 
-export function carregarCandidaturas(id: string) {
+async function carregarCandidatura(id: string) {
 
-    saidaCandidatos.innerHTML = "";
+    containerCandidatos.innerHTML = "<p>Carregando candidatos...</p>";
 
-    const URLCandidatos = "https://backend-acary.onrender.com";
-
-
-    fetchComRefresh(`${URLCandidatos}/carregarCandidatura/${id}`, {
-
-        method: "GET",
-
-        headers: {
-            "Content-Type": "application/json"
-        }
-
-    })
-
-    .then((res) => res.json())
-
-    .then((dadosCarregarCandidatos) => {
+    const URLcarregarCandidatos = "https://backend-acary.onrender.com";
 
 
-        console.log(dadosCarregarCandidatos);
+    try {
+
+        const resposta = await fetch(
+            `${URLcarregarCandidatos}/carregarCandidatura/${id}`,
+            {
+                method: "GET",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
+        );
 
 
-        if (dadosCarregarCandidatos.mensagem) {
-            alert(dadosCarregarCandidatos.mensagem);
+        const dados = await resposta.json();
+
+
+        console.log("Candidatos:", dados);
+
+
+
+        if (!resposta.ok) {
+
+            if (dados.mensagem === "Nenhuma candidatura encontrada.") {
+
+                containerCandidatos.innerHTML = `
+                    <p>Nenhum candidato encontrado.</p>
+                `;
+
+                return;
+            }
+
+
+            alert(dados.mensagem);
             return;
+
         }
 
 
-        dadosCarregarCandidatos.forEach((item: any) => {
+
+        containerCandidatos.innerHTML = "";
 
 
-            saidaCandidatos.innerHTML += `
 
-                <div class="candidatos" data-id="${item.id}">
+        dados.forEach((item: any) => {
 
-                    <img src="../../assets/icones/mulher.png">
 
-                    <p class="nome-candidato">
-                        ${item.nome}
-                    </p>
+            containerCandidatos.innerHTML += `
+
+                <div class="candidatos">
+
+                    <img 
+                        src="../../assets/icones/mulher.png"
+                        alt="Foto da babá"
+                    >
+
+                    <div>
+
+                        <p class="nome-candidato">
+                            ${item.usuario.nome}
+                        </p>
+
+                        <button>
+                            Ver perfil
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -55,18 +84,14 @@ export function carregarCandidaturas(id: string) {
         });
 
 
-    })
-
-    .catch((error)=>{
+    } catch (error) {
 
         console.log(error);
 
-        alert("Erro no servidor.");
+        containerCandidatos.innerHTML = `
+            <p>Erro ao carregar candidatos.</p>
+        `;
 
-    });
+    }
 
 }
-
-
-// deixa disponível para o HTML
-(window as any).carregarCandidaturas = carregarCandidaturas;

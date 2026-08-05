@@ -51,7 +51,7 @@ router.post("/loginUsuario", async (req: Request, res: Response) => {
         }
 
         // Criando o Token
-        const token = jwt.sign({id: user.id}, process.env.JWT_SECRET ?? "", {expiresIn: "10m"});
+        const token = jwt.sign({id: user.id}, process.env.JWT_SECRET ?? "", {expiresIn: "30m"});
 
         const refresh = jwt.sign({id: user.id}, process.env.REFRESH_SECRET ?? "", {expiresIn: "7d"});
 

@@ -1,14 +1,15 @@
-import { carregarCandidaturas } from "../paginaInicialFamilia/carregarCandidaturas";
-const containerCandidatos = document.getElementById("container-candidatos");
+"use strict";
+const containerCandidatosMostrar = document.getElementById("container-candidatos");
 function mostrarCandidatos(id) {
-    if (containerCandidatos.style.display === "none" ||
-        containerCandidatos.style.display === "") {
-        containerCandidatos.style.display = "block";
+    function mostrarCandidatos(id) {
+        if (containerCandidatosMostrar.style.display === "none" || containerCandidatosMostrar.style.display === "") {
+            containerCandidatosMostrar.style.display = "block";
+            carregarCandidatura(id);
+        }
+        else {
+            containerCandidatosMostrar.style.display = "none";
+        }
     }
-    else {
-        containerCandidatos.style.display = "none";
-    }
-    carregarCandidaturas(id);
+    window.mostrarCandidatos = mostrarCandidatos;
 }
-// deixa disponível para o HTML
-window.mostrarCandidatos = mostrarCandidatos;
+;
