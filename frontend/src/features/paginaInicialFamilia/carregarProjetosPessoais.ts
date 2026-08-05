@@ -22,7 +22,7 @@ function carregarPostagemPessoal() {
 
         if (dados.mensagem === "Usuário não autenticado.") {
             alert("Usuário não autenticado.");
-            return window.location.replace("http://127.0.0.1:5500/frontend/index.html");
+            return window.location.replace("/frontend/index.html");
         };
 
         if (dados.mensagem === "Você não fez nem uma postagem.") {

@@ -13,7 +13,7 @@ function verificarLogin() {
         console.log(dados);
         if (dados.mensagem !== "Autenticado") {
             alert("Voce nao fez o login");
-            return window.location.replace("http://127.0.0.1:5500/frontend/index.html");
+            return window.location.replace("/frontend/index.html");
         }
         ;
     });

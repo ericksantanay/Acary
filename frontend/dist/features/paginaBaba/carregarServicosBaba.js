@@ -16,7 +16,7 @@ function carregarServicoBaba() {
         console.log(dados);
         if (dados.mensagem === "Usuário não autenticado." || dados.mensagem === "Usuario não existe." || dados.mensagem === "Você não tem autorização!") {
             alert("Usuário não autenticado.");
-            return window.location.replace("http://127.0.0.1:5500/frontend/index.html");
+            return window.location.replace("/frontend/index.html");
         }
         ;
         if (dados.mensagem === "Nem um serviço encontardo") {
