@@ -12,6 +12,7 @@ nav {
 
 /* Icone de hamburuguer */
 #menu-burguer {
+    cursor: pointer;
    font-size: 30px;
 }
 
@@ -26,6 +27,11 @@ nav {
 #container-icone-usuario  > img {
     width: 30px;
     margin-right: 5px;
+    cursor: pointer;
+}
+
+#container-icone-usuario  > svg {
+    cursor: pointer;
 }
 
 #container-conteudo-mobile-familia {
