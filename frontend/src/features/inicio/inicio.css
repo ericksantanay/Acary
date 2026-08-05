@@ -8,7 +8,7 @@ main {
      display: flex;
     justify-content: space-between;
     align-items: center;
-
+    cursor: pointer;
     border: 1px solid var(--azul);
     border-radius: 15px;
     padding: 15px;

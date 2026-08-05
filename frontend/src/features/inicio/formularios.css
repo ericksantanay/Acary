@@ -40,6 +40,7 @@
     border: 1px solid var(--azul);
     background-color: #004bad36;
     color: var(--azul);
+    cursor: pointer;
 }
 
 /*  */
@@ -47,6 +48,7 @@
     border: none;
     background-color: var(--azul);
     color: var(--branco);
+    cursor: pointer;
 }
 
 
