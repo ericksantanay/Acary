@@ -33,6 +33,7 @@ app.use(cookieParser()); // Configura o middleware para ler cookies (req.cookies
 app.use(cors({
     origin: [
         "http://127.0.0.1:5500",
+        "https://acary.vercel.app",
         "https://acary-1v7c9vhb6-ericksantanays-projects.vercel.app"
     ],
     credentials: true
