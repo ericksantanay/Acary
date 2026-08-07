@@ -15,7 +15,7 @@ function verificarLogin() {
 
         if (dados.mensagem !== "Autenticado") {
             alert("Voce nao fez o login")
-            return window.location.replace("/frontend/index.html");
+            return window.location.replace("/index.html");
         };
 
     });

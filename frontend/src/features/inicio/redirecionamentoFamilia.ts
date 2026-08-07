@@ -7,8 +7,6 @@ const formularioBaba = document.getElementById('formulario-login-baba') as HTMLF
 
 const linkDeCadastro = document.getElementById('link-cadastro') as HTMLDivElement
 
-// const btnVoltar = document.querySelectorAll<HTMLDivElement>('.btn-voltar');
-
 // H1s
 const h1SejaBemVindo = document.getElementById('seja-bem-vindo') as HTMLElement;
 const h1Familia = document.getElementById('titulo-familia') as HTMLElement;

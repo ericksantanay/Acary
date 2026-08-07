@@ -4,7 +4,6 @@ const cardsFamiliaEBabas = document.querySelectorAll(".card-redirecionamento");
 const formularioFamilia = document.getElementById('formulario-login-familia');
 const formularioBaba = document.getElementById('formulario-login-baba');
 const linkDeCadastro = document.getElementById('link-cadastro');
-// const btnVoltar = document.querySelectorAll<HTMLDivElement>('.btn-voltar');
 // H1s
 const h1SejaBemVindo = document.getElementById('seja-bem-vindo');
 const h1Familia = document.getElementById('titulo-familia');

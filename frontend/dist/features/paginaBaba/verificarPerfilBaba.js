@@ -13,7 +13,7 @@ function verificarPerfilBaba() {
         console.log(dados);
         if (dados.perfil !== "Babá") {
             alert("Você não tem autorização");
-            window.location.replace("/frontend/index.html");
+            window.location.replace("/index.html");
         }
         ;
     })

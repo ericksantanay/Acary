@@ -19,7 +19,7 @@ function mostrarDadosPerfil() {
         console.log(dados);
         if (dados.mensagem === "Usuario não existe.") {
             alert("Usuario não existe.");
-            return window.location.replace("/frontend/index.html");
+            return window.location.replace("/index.html");
         }
         ;
         dadosNome.innerHTML = `<strong>Nome:</strong> ${dados.nome}`;

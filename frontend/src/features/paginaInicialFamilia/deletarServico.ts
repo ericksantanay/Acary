@@ -17,7 +17,7 @@ function excluir(id: any) {
 
         if (dados.mensagem === "Usuário não autenticado.") {
             alert ("Usuário não autenticado.");
-            return window.location.replace("/frontend/index.html");
+            return window.location.replace("/index.html");
         };
 
         if (dados.mensagem === "Postagem não encontrada ou não pertence ao usuário.") {

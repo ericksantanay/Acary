@@ -36,7 +36,7 @@ if (formFamilias) {
                 ;
                 if (dados.mensagem === "Login efetuado com sucesso") {
                     alert("Login efetuado com sucesso");
-                    return window.location.replace("/frontend/src/features/paginaInicialFamilia/paginaInicialFamilia.html");
+                    return window.location.replace("/src/features/paginaInicialFamilia/paginaInicialFamilia.html");
                 }
                 ;
             }).catch((error) => {
@@ -81,7 +81,7 @@ if (formBabas) {
                 ;
                 if (dados.mensagem === "Login efetuado com sucesso") {
                     alert("Login efetuado com sucesso");
-                    return window.location.replace("/frontend/src/features/paginaBaba/paginaBaba.html");
+                    return window.location.replace("/src/features/paginaBaba/paginaBaba.html");
                 }
             }).catch((error) => {
                 console.log("Baba");

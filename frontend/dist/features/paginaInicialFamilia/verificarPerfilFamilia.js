@@ -13,7 +13,7 @@ function verificarPerfilFamilia() {
         console.log(dados);
         if (dados.perfil !== "Família") {
             alert("Você não tem autorização");
-            return window.location.replace("/frontend/index.html");
+            return window.location.replace("/index.html");
         }
         ;
     })

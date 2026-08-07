@@ -16,7 +16,7 @@ function verificarPerfilBaba() {
 
         if (dados.perfil !== "Babá") {
             alert("Você não tem autorização");
-            window.location.replace("/frontend/index.html");
+            window.location.replace("/index.html");
         };
     })
     .catch((error) => {
