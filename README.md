@@ -44,7 +44,7 @@ O projeto já se encontra hospedado e funcional em suas mecânicas principais. N
 
 ## 🔗 Acesse o Projeto
 
-- **Link da Aplicação:** [text](https://acary.vercel.app/)
+- **Link da Aplicação:** [Link do projeto](https://acary.vercel.app/)
 
 ---
 
