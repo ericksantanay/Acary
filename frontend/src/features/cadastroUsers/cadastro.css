@@ -19,6 +19,7 @@ section {
 
 /* Div aonde esta os inputs e label */
 .container-campo {
+    position: relative;
     padding: 5px;
     width: 100%;
     display: flex;
@@ -33,9 +34,9 @@ section {
 
 /* Icone da senha */
 .container-campo > #mostrar-senha {
-    position: fixed;
-    bottom: 256px;
-    left: 82%;
+    position: absolute;
+    left: 85%;
+    top: 60%;
     color: var(--azul);
 }
 
