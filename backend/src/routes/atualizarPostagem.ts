@@ -86,5 +86,4 @@ router.patch("/atualizarPostagem/:id", verificarToken, async (req: RequestUserId
 
 });
 
-
 export default router;
