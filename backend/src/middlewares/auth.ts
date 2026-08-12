@@ -32,7 +32,6 @@ export function verificarToken(req: RequestUserId, res: Response, next: NextFunc
 
         req.userId = id
 
-        // Next (Proximo)
         next()
     } catch (error) {
         console.log("Token expirado ou inválido");
