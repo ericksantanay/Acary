@@ -20,8 +20,6 @@ if (formFamilias) {
             if (!emailValue || !senhaValue) {
                 return alert("Preencha os campos corretamente");
             };
-
-            
                 
                 const URL:string = "https://backend-acary.onrender.com";
                 
@@ -59,7 +57,6 @@ if (formFamilias) {
     });
 
 }
-    
 
 if (formBabas) {
     
@@ -79,7 +76,6 @@ if (formBabas) {
             if (!emailBabaValue || !senhaBabaValue) {
                 return alert("Preencha os campos corretamente");
             };
-
 
             const URLBabaLogin: string = "https://backend-acary.onrender.com"; 
 
@@ -116,4 +112,4 @@ if (formBabas) {
         };
     });
 
-}
+};
